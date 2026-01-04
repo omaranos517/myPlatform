@@ -18,7 +18,7 @@
         <div class="login-card">
             <div class="login-header">
                 <h2><i class="fas fa-user-plus"></i> إنشاء حساب جديد</h2>
-                <p>انضم إلى منصة الأزهري التعليمية وابدأ رحلة التعلم</p>
+                <p>انضم إلى اسم المنصة التعليمية وابدأ رحلة التعلم</p>
             </div>
         
             <div class="form-container">

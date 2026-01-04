@@ -172,7 +172,7 @@
                 
                 <div class="testimonial-card animate-on-scroll">
                     <div class="testimonial-text">
-                        "أفضل قرار اتخذته هو الاشتراك في منصة الأزهري، وفرت عليّ مصاريف الدروس الخصوصية والنتيجة كانت ممتازة!"
+                        "أفضل قرار اتخذته هو الاشتراك في اسم المنصة، وفرت عليّ مصاريف الدروس الخصوصية والنتيجة كانت ممتازة!"
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">س</div>
