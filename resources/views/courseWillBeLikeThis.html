@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Course Panel Example</title>
+        <style>
+            .container {
+                margin: 10px;
+                background-color: #c3e0d5;
+                border: 5px solid #04aa6d;
+                border-radius: 8px;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .container h2 {
+                font-size: 24px;
+                margin: 10px;
+                background-color: #04aa6d;
+                color: white;
+                border: solid 1px #a6d8a8;
+                border-radius: 8px;
+                width: 100%;
+                padding: 10px;
+                cursor: pointer;
+                word-wrap: break-word;
+            }
+            #panel {
+                opacity: 0;
+                height: 1px;
+                transform: translateY(-20px);
+                overflow: hidden;
+                cursor: auto;
+                transition: all 0.5s ease-in-out;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- ** The main card that the user will click on to show/hide the panel -->
+            <h2 class="flip" onclick="myFunction()">
+                Click to show/hide panel(this will be the lesson is main
+                card\button)
+            </h2>
+            <!-- ** The panel that will be appeard when the user click the main card -->
+            <div id="panel">
+                <h2>
+                    The panel toggles between hiding and showing a div element.
+                </h2>
+                <h2>We use JavaScript to open and close it.</h2>
+                <h2>It is work</h2>
+            </div>
+        </div>
+        <p>hello</p>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("panel");
+                if (x.style.opacity === "0") {
+                    x.style.opacity = "1";
+                    x.style.height = "100%";
+                    x.style.transform = "translateY(0px)";
+                } else {
+                    x.style.opacity = "0";
+                    x.style.height = "1px";
+                    x.style.transform = "translateY(-20px)";
+                }
+            }
+        </script>
+    </body>
+</html>

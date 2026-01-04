@@ -1,0 +1,372 @@
+:root {
+    /* ألوان الوضع الفاتح */
+    --primary-light: #3498db;
+    --primary-dark-light: #2980b9;
+    --secondary-light: #2c3e50;
+    --accent-light: #e74c3c;
+    --background-light: #f8f9fa;
+    --card-light: #ffffff;
+    --text-light: #2c3e50;
+    --text-secondary-light: #7f8c8d;
+    --border-light: #ddd;
+    --success-light: #27ae60;
+    --warning-light: #f39c12;
+
+    /* ألوان الوضع الداكن */
+    --primary-dark: #3498db;
+    --primary-dark-dark: #2980b9;
+    --secondary-dark: #2c3e50;
+    --accent-dark: #e74c3c;
+    --background-dark: #121212;
+    --card-dark: #1e1e1e;
+    --text-dark: #e6e6e6;
+    --text-secondary-dark: #b0b0b0;
+    --border-dark: #2d4059;
+    --success-dark: #2ecc71;
+    --warning-dark: #f1c40f;
+
+    /* قيم مشتركة */
+    --border-radius: 12px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    line-height: 1.6;
+    transition: var(--transition);
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.back-btn i {
+    margin-right: 8px;
+}
+
+/* عنوان الصفحة */
+.page-title {
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+.page-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+
+body.dark-mode .page-title h1 {
+    color: var(--text-dark);
+}
+
+.page-title p {
+    font-size: 1.2rem;
+    color: var(--text-secondary-light);
+}
+
+body.dark-mode .page-title p {
+    color: var(--text-secondary-dark);
+}
+
+/* محتوى الدروس */
+.lessons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.lesson-card {
+    background-color: var(--card-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--border-light);
+}
+
+body.dark-mode .lesson-card {
+    background-color: var(--card-dark);
+    border-color: var(--border-dark);
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.lesson-header {
+    background: linear-gradient(
+        135deg,
+        var(--primary-light),
+        var(--primary-dark-light)
+    );
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+body.dark-mode .lesson-header {
+    background: linear-gradient(
+        135deg,
+        var(--primary-dark),
+        var(--primary-dark-dark)
+    );
+}
+
+.lesson-title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.lesson-content {
+    padding: 20px;
+}
+
+.video-links {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.video-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--primary-light);
+    color: white;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+body.dark-mode .video-link {
+    background-color: var(--primary-dark);
+}
+
+.video-link:hover {
+    background-color: var(--primary-dark-light);
+    transform: translateY(-2px);
+}
+
+body.dark-mode .video-link:hover {
+    background-color: var(--primary-dark-dark);
+}
+
+.video-link i {
+    margin-left: 8px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    margin: 25px 0 15px;
+    color: var(--primary-light);
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+body.dark-mode .section-title {
+    color: var(--primary-dark);
+    border-bottom-color: var(--border-dark);
+}
+
+.question-item {
+    background-color: #f8f9fa;
+    border-right: 4px solid var(--primary-light);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius);
+}
+
+body.dark-mode .question-item {
+    background-color: #2d4059;
+    border-right-color: var(--primary-dark);
+}
+
+.question-text {
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.options-list {
+    list-style-type: none;
+    padding-right: 15px;
+}
+
+.option {
+    margin-bottom: 8px;
+    position: relative;
+    padding-right: 25px;
+}
+
+.option input[type="radio"] {
+    margin-left: 10px;
+}
+
+.option label {
+    cursor: pointer;
+}
+
+.attachments-list {
+    list-style-type: none;
+}
+
+.attachment-item {
+    margin-bottom: 10px;
+}
+
+.attachment-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-light);
+    text-decoration: none;
+    transition: var(--transition);
+    padding: 8px 0;
+}
+
+body.dark-mode .attachment-link {
+    color: var(--primary-dark);
+}
+
+.attachment-link:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+}
+
+body.dark-mode .attachment-link:hover {
+    color: var(--accent-dark);
+}
+
+.attachment-link i {
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+/* حالة عدم وجود دروس */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary-light);
+    grid-column: 1 / -1;
+}
+
+body.dark-mode .empty-state {
+    color: var(--text-secondary-dark);
+}
+
+.empty-state i {
+    font-size: 4rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+body.dark-mode .empty-state i {
+    color: #444;
+}
+
+.empty-state h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* زر الإرسال */
+.submit-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--success-light);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+body.dark-mode .submit-btn {
+    background-color: var(--success-dark);
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-dark-light);
+}
+
+body.dark-mode .submit-btn:hover {
+    background-color: var(--primary-dark-dark);
+}
+
+/* رسائل النتائج */
+.result-message {
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin: 15px 0;
+    font-weight: 500;
+}
+
+.result-message.correct {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+body.dark-mode .result-message.correct {
+    background-color: #155724;
+    color: #d4edda;
+    border: 1px solid #0f4418;
+}
+
+.result-message.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+body.dark-mode .result-message.incorrect {
+    background-color: #721c24;
+    color: #f8d7da;
+    border: 1px solid #58151c;
+}
+
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .lessons-container {
+        grid-template-columns: 1fr;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .page-title h1 {
+        font-size: 2rem;
+    }
+
+    .video-links {
+        flex-direction: column;
+    }
+}

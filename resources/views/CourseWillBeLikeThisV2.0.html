@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Course Panel Example - Improved</title>
+        <style>
+            .container {
+                margin: 10px;
+                background-color: #c3e0d5;
+                border: 5px solid #04aa6d;
+                border-radius: 8px;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                overflow: hidden; /* لمنع المحتوى من الخروج عند التوسيع */
+            }
+
+            .container h2 {
+                font-size: 24px;
+                margin: 10px;
+                background-color: #04aa6d;
+                color: white;
+                border: solid 1px #a6d8a8;
+                border-radius: 8px;
+                width: calc(100% - 20px); /* تعديل العرض لمراعاة الهوامش */
+                padding: 10px;
+                cursor: pointer;
+                word-wrap: break-word;
+                transition: background-color 0.3s; /* إضافة انتقال سلس */
+                -webkit-user-select: none;
+                user-select: none; /* منع تحديد النص عند النقر */
+            }
+
+            .container h2:hover {
+                background-color: #038c5a; /* تأثير hover */
+            }
+
+            #panel {
+                opacity: 0;
+                height: 0;
+                transform: translateY(-20px);
+                overflow: hidden;
+                cursor: auto;
+                transition: all 0.5s ease-in-out;
+                padding: 0 15px; /* إضافة padding ثابت */
+                box-sizing: border-box; /* لحساب padding في الأبعاد */
+            }
+
+            #panel.show {
+                opacity: 1;
+                height: auto;
+                transform: translateY(0);
+                padding: 15px; /* padding عند العرض */
+                margin: 0 10px 10px; /* هوامش متسقة */
+            }
+
+            #panel h2 {
+                background-color: transparent;
+                color: #333;
+                border: none;
+                font-size: 20px;
+                padding: 8px 0;
+                margin: 5px 0;
+                width: 100%;
+                cursor: auto;
+            }
+
+            #panel h2:first-child {
+                margin-top: 0;
+            }
+
+            #panel h2:last-child {
+                margin-bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- استخدام button لعنصر قابل للنقر مع الحفاظ على التنسيق -->
+            <h2 class="flip" id="toggleButton" tabindex="0" role="button">
+                Click to show/hide panel (this will be the lesson's main
+                card/button)
+            </h2>
+
+            <!-- تحسين بنية المحتوى داخل الـ panel -->
+            <div id="panel">
+                <h2>
+                    The panel toggles between hiding and showing a div element.
+                </h2>
+                <h2>We use JavaScript to open and close it.</h2>
+                <h2>It is working perfectly now.</h2>
+            </div>
+        </div>
+        <p>hello</p>
+
+        <script>
+            // استخدام event listener بدلاً من onclick في HTML
+            const toggleButton = document.getElementById("toggleButton");
+            const panel = document.getElementById("panel");
+
+            function togglePanel() {
+                // استخدام classList.toggle بدلاً من التلاعب المباشر بالأنماط
+                panel.classList.toggle("show");
+
+                // تحديث ARIA attributes للوصول
+                const isExpanded = panel.classList.contains("show");
+                toggleButton.setAttribute("aria-expanded", isExpanded);
+
+                // إضافة تأثير صوتي بسيط للتفاعل (اختياري)
+                if (isExpanded) {
+                    console.log("Panel expanded");
+                } else {
+                    console.log("Panel collapsed");
+                }
+            }
+
+            // إضافة event listener للنقر
+            toggleButton.addEventListener("click", togglePanel);
+
+            // إضافة دعم لوحة المفاتيح للوصول
+            toggleButton.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    togglePanel();
+                }
+            });
+
+            // إغلاق الـ panel عند النقر خارجها
+            document.addEventListener("click", function (event) {
+                if (
+                    !toggleButton.contains(event.target) &&
+                    !panel.contains(event.target) &&
+                    panel.classList.contains("show")
+                ) {
+                    togglePanel();
+                }
+            });
+
+            // تهيئة الحالة الأولية
+            toggleButton.setAttribute("aria-expanded", "false");
+            toggleButton.setAttribute("role", "button");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,302 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: var(--transition);
+    overflow-x: hidden;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+/* قسم صفحة 404 */
+.error-section {
+    max-width: 800px;
+    text-align: center;
+    padding: 40px;
+    background: var(--card-light);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+body.dark-mode .error-section {
+    background: var(--card-dark);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* تأثير خلفي جميل */
+.error-section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(52, 152, 219, 0.1) 0%,
+        transparent 70%
+    );
+    z-index: 0;
+}
+
+/* رمز الخطأ */
+.error-code {
+    font-size: 12rem;
+    font-weight: 900;
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--primary-dark) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    line-height: 1;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* عنوان الخطأ */
+.error-title {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+body.dark-mode .error-title {
+    color: var(--text-dark);
+}
+
+/* وصف الخطأ */
+.error-description {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 30px;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+body.dark-mode .error-description {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* أيقونة الخطأ */
+.error-icon {
+    font-size: 8rem;
+    color: var(--primary);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* أزرار الإجراءات */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.action-btn {
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-family: "Cairo", sans-serif;
+}
+
+.action-btn.primary {
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--primary-dark) 100%
+    );
+    color: white;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.action-btn.secondary {
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+body.dark-mode .action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.action-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* الرسوم المتحركة للخطأ */
+.error-animation {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(52, 152, 219, 0.1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* نصائح */
+.tips-section {
+    margin-top: 40px;
+    padding: 25px;
+    background: rgba(52, 152, 219, 0.05);
+    border-radius: 15px;
+    border-right: 5px solid var(--primary);
+    text-align: right;
+    position: relative;
+    z-index: 1;
+}
+
+body.dark-mode .tips-section {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tips-title {
+    color: var(--secondary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+body.dark-mode .tips-title {
+    color: var(--text-dark);
+}
+
+.tips-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tips-list li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tips-list li i {
+    color: var(--primary);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 40px 15px;
+    }
+
+    .error-section {
+        padding: 30px 20px;
+    }
+
+    .error-code {
+        font-size: 8rem;
+    }
+
+    .error-icon {
+        font-size: 5rem;
+    }
+
+    .error-title {
+        font-size: 2rem;
+    }
+
+    .error-description {
+        font-size: 1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-code {
+        font-size: 6rem;
+    }
+
+    .error-title {
+        font-size: 1.6rem;
+    }
+
+    .error-description {
+        font-size: 0.9rem;
+    }
+}
