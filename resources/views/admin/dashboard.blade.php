@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة تحكم الأزهري</title>
+    <title>لوحة تحكم (اسم المنصة)</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,7 +16,7 @@
         <div class="header-content">
             <div class="logo">
                 <i class="fas fa-graduation-cap"></i>
-                <h1>نظام الأزهري التعليمي</h1>
+                <h1>نظام (اسم المنصة) التعليمي</h1>
             </div>
             <div class="user-info">
                 <div class="user-avatar">
@@ -144,7 +144,7 @@
     </a>
     
     <div class="footer">
-        <p>© 2023 نظام الأزهري التعليمي. جميع الحقوق محفوظة.</p>
+        <p>© 2023 نظام (اسم المنصة) التعليمي. جميع الحقوق محفوظة.</p>
     </div>
     <script>
         window.statsUrl = "{{ route('admin.stats') }}";

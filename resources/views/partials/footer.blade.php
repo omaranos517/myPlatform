@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-content">
         <div class="footer-column">
-            <h3 class="animate-fade-in-up">عن الأزهري</h3>
+            <h3 class="animate-fade-in-up">عن (اسم المنصة)</h3>
             <p class="animate-slide-in-right">منصة تعليمية متكاملة تخدم طلاب المرحلتين الإعدادية والثانوية بمختلف أنظمتها التعليمية. نقدم تعليمًا عالي الجودة بأسعار مناسبة.</p>
             <div class="newsletter-form animate-fade-in-up">
                 <h4>اشترك في النشرة البريدية (قريبا)</h4>
@@ -23,7 +23,7 @@
                     @if (($footerLinks ?? '') === 'main')
                         <li><a href="#hero"><i class="fas fa-home"></i> الرئيسية</a></li>
                         @guest
-                            <li><a href="#features"><i class="fas fa-question-circle"></i> لماذا نختار الأزهري؟</a></li>
+                            <li><a href="#features"><i class="fas fa-question-circle"></i> لماذا نختار (اسم المنصة)؟</a></li>
                         @endguest
                         @auth
                             <li><a href="#subjects"><i class="fas fa-book"></i> المواد الدراسية</a></li>
@@ -49,7 +49,7 @@
                 <a href="https://instagram.com" class="social-icon instagram" target="_blank" data-delay="0.2" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://wa.me/201557582785?text=أنا%20طالب%20من%20منصة%20الأزهري%20وعايز%20أتواصل%20مع%20الدعم" 
+                <a href="https://wa.me/201557582785?text=أنا%20طالب%20من%20منصة%20(اسم المنصة)%20وعايز%20أتواصل%20مع%20الدعم" 
                     class="social-icon whatsapp" 
                     target="_blank" data-delay="0.3" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
@@ -77,7 +77,7 @@
     
     <div class="footer-bottom">
         <div class="copyright">
-            <p>© 2025 نظام الأزهري التعليمي. جميع الحقوق محفوظة | تم التصميم والتطوير بواسطة <a href="https://omaranos517.vercel.app" target="_blank" rel="noopener noreferrer" id="designer-link">عمر عنوس</a>.</p>
+            <p>© 2025 نظام (اسم المنصة) التعليمي. جميع الحقوق محفوظة | تم التصميم والتطوير بواسطة <a href="https://omaranos517.vercel.app" target="_blank" rel="noopener noreferrer" id="designer-link">عمر عنوس</a>.</p>
         </div>
         
         <div class="footer-badges">

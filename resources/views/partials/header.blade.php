@@ -2,9 +2,9 @@
     <div class="logo">
         <img src="{{ asset('images/logo-dark.png') }}" alt="شعار المنصة" id="logo-img">
         @if (($showNavBtns ?? 'main') === 'main')
-            <a href='#hero'>الأزهري</a>
+            <a href='#hero'>(اسم المنصة)</a>
         @else
-            <a href="{{ route('home')}}">الأزهري</a>
+            <a href="{{ route('home')}}">(اسم المنصة)</a>
         @endif
     </div>
     <p>قيمة $showNavBtns الحالية: {{ $showNavBtns ?? 'غير محددة' }}</p>
