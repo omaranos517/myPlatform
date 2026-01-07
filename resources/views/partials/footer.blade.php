@@ -77,7 +77,7 @@
     
     <div class="footer-bottom">
         <div class="copyright">
-            <p>© 2025 نظام (اسم المنصة) التعليمي. جميع الحقوق محفوظة | تم التصميم والتطوير بواسطة <a href="https://omaranos517.vercel.app" target="_blank" rel="noopener noreferrer" id="designer-link">عمر عنوس</a>.</p>
+            <p>© <span id="year"></span> نظام (اسم المنصة) التعليمي. جميع الحقوق محفوظة | تم التصميم والتطوير بواسطة <a href="https://omaranos517.vercel.app" target="_blank" rel="noopener noreferrer" id="designer-link">عمر عنوس</a>.</p>
         </div>
         
         <div class="footer-badges">

@@ -2,6 +2,8 @@ const supportModal = document.getElementById("supportModal");
 const supportBtn = document.getElementById("supportBtn");
 const closeSupportBtn = document.getElementById("closeSupportModel");
 
+document.getElementById("year").textContent = new Date().getFullYear();
+
 // فتح نافذة الدعم الفني عند النقر على الزر
 supportBtn.addEventListener("click", openSupportModal);
 

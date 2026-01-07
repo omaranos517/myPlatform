@@ -352,23 +352,24 @@ footer::before {
     flex: 1;
 }
 
-.copyright a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.copyright a:hover {
-    color: white;
-    text-decoration: underline;
-}
-
 /* Ensure the designer link is clickable (fix for overlays) */
 #designer-link {
     position: relative;
     z-index: 999; /* bring above footer pseudo-element */
     pointer-events: auto;
     display: inline-block;
+    background: #3f83c1;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+#designer-link:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 10px rgba(35, 160, 210, 0.4);
 }
 
 .footer-badges {
