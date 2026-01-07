@@ -558,6 +558,11 @@ body.dark-mode .form-group input {
     box-shadow: 0 4px 12px rgba(241, 196, 15, 0.3);
 }
 
+.support-btn i {
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+
 .support-btn:hover {
     transform: translateY(-3px);
     background: linear-gradient(135deg, #e67e22 0%, var(--warning) 100%);
