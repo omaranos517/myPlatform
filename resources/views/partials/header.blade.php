@@ -7,7 +7,6 @@
             <a href="{{ route('home')}}">(اسم المنصة)</a>
         @endif
     </div>
-    <p>قيمة $showNavBtns الحالية: {{ $showNavBtns ?? 'غير محددة' }}</p>
 
     <div class="nav-buttons">
         {{-- أزرار الصفحة الرئيسية --}}

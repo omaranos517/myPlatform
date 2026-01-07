@@ -4,7 +4,7 @@
             <h3 class="animate-fade-in-up">عن (اسم المنصة)</h3>
             <p class="animate-slide-in-right">منصة تعليمية متكاملة تخدم طلاب المرحلتين الإعدادية والثانوية بمختلف أنظمتها التعليمية. نقدم تعليمًا عالي الجودة بأسعار مناسبة.</p>
             <div class="newsletter-form animate-fade-in-up">
-                <h4>اشترك في النشرة البريدية (قريبا)</h4>
+                <h4>اشترك في النشرة البريدية <span style="opacity: 0.6;">(قريباً)</span></h4>
                 <div class="newsletter-input">
                     <input type="email" placeholder="بريدك الإلكتروني">
                     <div class="tooltip-wrapper">

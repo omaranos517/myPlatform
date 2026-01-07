@@ -14,7 +14,7 @@
     ])
     <meta name="description" content="انضم إلى (اسم المنصة)، أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية. دروس مباشرة، تسجيلات، واختبارات تفاعلية مع أفضل المدرسين.">
     <meta name="keywords" content="(اسم المنصة), منصة تعليمية, دروس أونلاين, المرحلة الإعدادية, المرحلة الثانوية, تعليم مصر, دروس خصوصية, مدرسين متخصصين">
-    <meta name="author" content="Al-Azhari Team">
+    <meta name="author" content="The Platform Team">
     <meta property="og:title" content="(اسم المنصة) - المنصة التعليمية الأولى">
     <meta property="og:description" content="انضم إلى (اسم المنصة)، أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية. دروس مباشرة، تسجيلات، واختبارات تفاعلية مع أفضل المدرسين.">
     <meta property="og:image" content="https://www.alazhariplatform.com/GUI/light-mode-bg.png">
