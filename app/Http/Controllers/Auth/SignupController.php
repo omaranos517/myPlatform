@@ -42,7 +42,7 @@ class SignupController extends Controller
         $class = $request->input('class');
         $section = $request->input('section') ?? 'علمي';
         $educational_type = $request->input('educational_type');
-        $is_language = $request->has('is_language') ? 1 : 0;
+        $is_language = $request->has('is_language') ? true : false;
         $password = $request->input('password');
 
         // التحقق من الاسم الثلاثي
