@@ -27,7 +27,8 @@ cd myPlatform
 composer install
 cp .env.example .env
 php artisan key:generate
+npm install
 php artisan migrate
-npm install && npm run dev
-php artisan serve
+php artisan db:seed --class=SubjectsSeeder
+npm run dev
 ```
