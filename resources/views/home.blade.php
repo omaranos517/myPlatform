@@ -25,7 +25,7 @@
 </head>
 <body>
     <!-- Header -->
-    @include('partials.header', ['showNavBtns' => $showNavBtns])
+    <x-header show-nav-btns="main" />
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content" id="hero-content">

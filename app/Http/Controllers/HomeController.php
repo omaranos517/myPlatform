@@ -39,6 +39,7 @@ class HomeController extends Controller
             'successRate' => rand(80, 95),
             'totalTeachers' => rand(10, 50),
             'ParentalSatisfaction' => rand(85, 98),
+            'showNavBtns' => 'main',
         ]);
     }
 }
