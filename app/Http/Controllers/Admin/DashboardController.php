@@ -10,6 +10,7 @@ use App\Models\Subject;
 use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -87,10 +88,18 @@ class DashboardController extends Controller
     {
         $user = Auth::guard('admin')->user();
 
-        $studentCount = Student::query()->count();
-        $adminCount = Administrator::query()->count();
-        $subjectCount = Subject::query()->count();
-        $lessonCount = Lesson::query()->count();
+        $counts = DB::selectOne('
+            SELECT
+                (SELECT COUNT(*) FROM students) AS student_count,
+                (SELECT COUNT(*) FROM administrators) AS admin_count,
+                (SELECT COUNT(*) FROM subjects) AS subject_count,
+                (SELECT COUNT(*) FROM lessons) AS lesson_count
+        ');
+
+        $studentCount = $counts->student_count;
+        $adminCount   = $counts->admin_count;
+        $subjectCount = $counts->subject_count;
+        $lessonCount  = $counts->lesson_count;
 
         return view('admin.dashboard', compact(
             'user', 'studentCount', 'adminCount', 'subjectCount', 'lessonCount'

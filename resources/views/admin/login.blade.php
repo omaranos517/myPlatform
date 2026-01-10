@@ -269,7 +269,7 @@
             </form>
             
             <div class="register-link">
-                <p>ليس لديك حساب؟ <a href="admin_register.php">إنشاء حساب إداري جديد</a></p>
+                <p>ليس لديك حساب؟ <a href="{{ route('admin.signup') }}">إنشاء حساب إداري جديد</a></p>
             </div>
         </div>
     </div>
