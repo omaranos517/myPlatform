@@ -1,4 +1,4 @@
-# اسم المنصة التعليمية
+# المنصة التعليمية
 
 منصة تعليمية مبنية باستخدام Laravel تهدف إلى تقديم محتوى تعليمي مميز للطلاب في مختلف المراحل الدراسية.
 
@@ -19,6 +19,15 @@
 - Blade Templates
 - Vite
 
+## متطلبات التثبيت
+
+- PHP 8.1 أو أحدث
+- Composer
+- Node.js + npm
+- Git
+
+خادم محلي (Laragon / XAMPP / Apache + MySQL)
+
 ## 🛠 التثبيت
 
 ```bash
@@ -29,6 +38,6 @@ cp .env.example .env
 php artisan key:generate
 npm install
 php artisan migrate
-php artisan db:seed --class=SubjectsSeeder
+php artisan db:seed
 npm run dev
 ```

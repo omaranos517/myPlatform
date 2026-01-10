@@ -17,7 +17,8 @@
     ])    
 </head>
 <body>
-    @include('partials.header', ['showNavBtns'=> ''])
+    <!-- Header -->
+    <x-header show-nav-btns="" />
     <!-- Back Button -->
     @include('partials.backBtn')
     <div class="course-container">
@@ -72,7 +73,12 @@
     </div>
 
     <!-- Footer Section -->
-    @include('partials.footer', ['footerLinks'=> ''])
+    <x-footer 
+        :platformName="$settings->platform_name"
+        :socialLinks="$socialLinks"
+        :phone="$settings->phone"
+        :email="$settings->email"
+    />
     <!-- Back To Top -->
     @include('partials.backToTopBtn')
 

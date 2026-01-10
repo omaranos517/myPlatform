@@ -177,9 +177,11 @@ body.dark-mode header ::after {
     box-shadow: 0 6px 15px rgba(192, 57, 43, 0.4);
 }
 
-/* Light/Dark Mode Switch */
+/* **Light/Dark Mode Switch */
 .light-switch {
     margin-left: 15px;
+    margin-top: 6px;
+    margin-bottom: 7px;
 }
 
 .switch {

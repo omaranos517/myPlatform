@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>(اسم المنصة) - المنصة التعليمية الأولى</title>
+    <title>{{ $settings->platform_name }} - المنصة التعليمية الأولى</title>
     @vite([
         'resources/css/shared.css',
         'resources/css/home.css',
@@ -12,11 +12,11 @@
         'resources/css/backToTopBtn.css',
         'resources/css/loading-screen.css',
     ])
-    <meta name="description" content="انضم إلى (اسم المنصة)، أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية. دروس مباشرة، تسجيلات، واختبارات تفاعلية مع أفضل المدرسين.">
-    <meta name="keywords" content="(اسم المنصة), منصة تعليمية, دروس أونلاين, المرحلة الإعدادية, المرحلة الثانوية, تعليم مصر, دروس خصوصية, مدرسين متخصصين">
+    <meta name="description" content="انضم إلى {{ $settings->platform_name }}، أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية. دروس مباشرة، تسجيلات، واختبارات تفاعلية مع أفضل المدرسين.">
+    <meta name="keywords" content="{{ $settings->platform_name }}, منصة تعليمية, دروس أونلاين, المرحلة الإعدادية, المرحلة الثانوية, تعليم مصر, دروس خصوصية, مدرسين متخصصين">
     <meta name="author" content="The Platform Team">
-    <meta property="og:title" content="(اسم المنصة) - المنصة التعليمية الأولى">
-    <meta property="og:description" content="انضم إلى (اسم المنصة)، أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية. دروس مباشرة، تسجيلات، واختبارات تفاعلية مع أفضل المدرسين.">
+    <meta property="og:title" content="{{ $settings->platform_name }} - المنصة التعليمية الأولى">
+    <meta property="og:description" content="انضم إلى {{ $settings->platform_name }}، أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية. دروس مباشرة، تسجيلات، واختبارات تفاعلية مع أفضل المدرسين.">
     <meta property="og:image" content="https://www.alazhariplatform.com/GUI/light-mode-bg.png">
     <meta property="og:type" content="website">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
                     $firstName = explode(' ', trim(Auth::guard('student')->user()->name))[0];
                 @endphp
                 <h1 class="animate__animated animate__fadeInDown">مرحبًا بك، {{$firstName}}! 🌟</h1>
-                <p class="animate__animated animate__fadeInUp">سعداء بانضمامك إلى عائلة (اسم المنصة) للمرحلتين الإعدادية والثانوية.<br>أكبر منصة تعليمية متكاملة</p>
+                <p class="animate__animated animate__fadeInUp">سعداء بانضمامك إلى عائلة {{ $settings->platform_name }} للمرحلتين الإعدادية والثانوية.<br>أكبر منصة تعليمية متكاملة</p>
                 <div class="hero-buttons animate__animated animate__fadeInUp">
                     <a href="#subjects" class="hero-btn primary">
                         <i class="fas fa-book"></i> ابدأ التعلم الآن
@@ -45,14 +45,14 @@
                 </div>
             @endauth
             @guest
-                <h1 class="animate__animated animate__fadeInDown">أهلاً بك في عائلة (اسم المنصة)</h1>
+                <h1 class="animate__animated animate__fadeInDown">أهلاً بك في عائلة {{ $settings->platform_name }}</h1>
                 <p class="animate__animated animate__fadeInUp">أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية<br>أزهر - عام - لغات</p>
                 <div class="hero-buttons animate__animated animate__fadeInUp">
                     <a href="{{ route('signup.showForm') }}" class="hero-btn primary">
                         <i class="fas fa-user-plus"></i> انضم إلينا الآن
                     </a>
                     <a href="#features" class="hero-btn secondary">
-                        <i class="fas fa-info-circle"></i> لماذا نختار (اسم المنصة)؟
+                        <i class="fas fa-info-circle"></i> لماذا نختار {{ $settings->platform_name }}؟
                     </a>
                 </div>
             @endguest
@@ -199,7 +199,12 @@
         </section>
     @endauth
     <!-- Footer -->
-    @include('partials.footer', ['footerLinks'=> 'main'])
+    <x-footer 
+        :platformName="$settings->platform_name"
+        :socialLinks="$socialLinks"
+        :phone="$settings->phone"
+        :email="$settings->email"
+    />
     <!-- Back to Top Button -->
     @include('partials.backToTopBtn')
     @vite([

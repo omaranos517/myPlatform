@@ -171,7 +171,7 @@ footer::before {
     opacity: 1;
 }
 
-/* Social icons: improved animation workflow */
+/* *!Social icons: */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -180,7 +180,7 @@ footer::before {
     flex-wrap: wrap;
 }
 
-/* base state: hidden + ready for animation */
+/* **base state: hidden + ready for animation */
 .social-icon {
     width: 55px;
     height: 55px;
@@ -202,6 +202,11 @@ footer::before {
     transform: translateY(20px) rotate(-5deg); /* slight offset */
     animation: float 3s ease-in-out infinite;
     animation-play-state: paused; /* paused until we add visible class */
+}
+
+.social-icon i {
+    font-size: 1.7rem;
+    transition: transform 0.5s ease;
 }
 
 /* visible state: play animation and reset transform */
@@ -249,6 +254,36 @@ footer::before {
 
 .social-icon.youtube {
     background: linear-gradient(60deg, #fc1e1eff, #671717ff);
+    background-size: 100% 100%;
+    transition: background-position 0.5s ease;
+}
+
+.social-icon.tiktok {
+    background: linear-gradient(60deg, rgb(29, 1, 1), rgb(4, 13, 52));
+    background-size: 100% 100%;
+    transition: background-position 0.5s ease;
+}
+
+.social-icon.telegram {
+    background: linear-gradient(60deg, #0088cc, #035680);
+    background-size: 100% 100%;
+    transition: background-position 0.5s ease;
+}
+
+.social-icon.x {
+    background: linear-gradient(60deg, #0b2734, #073248);
+    background-size: 100% 100%;
+    transition: background-position 0.5s ease;
+}
+
+.social-icon.linkedin {
+    background: linear-gradient(60deg, #0088cc, #035680);
+    background-size: 100% 100%;
+    transition: background-position 0.5s ease;
+}
+
+.social-icon.email {
+    background: linear-gradient(60deg, #cc0000, #8b1616);
     background-size: 100% 100%;
     transition: background-position 0.5s ease;
 }
@@ -515,32 +550,76 @@ body.dark-mode .form-group input {
 
 /* ** Support Button */
 .support-btn {
-    margin: 20px auto;
-    display: inline-block;
+    position: relative;
+    overflow: hidden;
+
     padding: 12px 25px;
-    background: linear-gradient(135deg, var(--warning) 0%, #e67e22 100%);
-    color: white;
-    border: none;
     border-radius: 50px;
+    border: none;
+    cursor: pointer;
     font-family: "Cairo", sans-serif;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    color: white;
+    background: transparent;
+
     box-shadow: 0 4px 12px rgba(241, 196, 15, 0.3);
+    transition: box-shadow 0.3s;
+}
+
+/* **gradient layer */
+.support-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        var(--warning),
+        #e67e22,
+        var(--warning),
+        #e6ab22
+    );
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+
+    z-index: -1;
+    transition: background-position 1.5s ease;
+}
+
+/* hover animation */
+.support-btn:hover::before {
+    animation: gradientMove 3s linear infinite;
 }
 
 .support-btn i {
     font-size: 1.2rem;
     margin-left: 5px;
+    transition: transform 0.3s;
 }
 
 .support-btn:hover {
-    transform: translateY(-3px);
-    background: linear-gradient(135deg, #e67e22 0%, var(--warning) 100%);
     box-shadow: 0 6px 15px rgba(241, 196, 15, 0.4);
 }
 
+.support-btn:hover i {
+    transform: scale(1.1);
+}
+
 /* *? Animations */
+
+/* ** background */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 @keyframes float {
     0%,
     100% {

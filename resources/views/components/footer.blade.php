@@ -1,8 +1,8 @@
 <footer>
     <div class="footer-content">
         <div class="footer-column">
-            <h3 class="animate-fade-in-up">عن (اسم المنصة)</h3>
-            <p class="animate-slide-in-right">منصة تعليمية متكاملة تخدم طلاب المرحلتين الإعدادية والثانوية بمختلف أنظمتها التعليمية. نقدم تعليمًا عالي الجودة بأسعار مناسبة.</p>
+            <h3 class="animate-fade-in-up">عن {{ $platformName }}</h3>
+            <p class="animate-slide-in-right">{{ $description }}</p>
             <div class="newsletter-form animate-fade-in-up">
                 <h4>اشترك في النشرة البريدية <span style="opacity: 0.6;">(قريباً)</span></h4>
                 <div class="newsletter-input">
@@ -13,6 +13,7 @@
                     </div>
                 </div>
                 <p style="font-size: 0.8rem; opacity: 0.7;">سنرسل لك آخر التحديثات والعروض الخاصة</p>
+                <p>the value of footerLinks is: {{ $footerLinks }}</p>
             </div>
         </div>
         
@@ -23,7 +24,7 @@
                     @if (($footerLinks ?? '') === 'main')
                         <li><a href="#hero"><i class="fas fa-home"></i> الرئيسية</a></li>
                         @guest
-                            <li><a href="#features"><i class="fas fa-question-circle"></i> لماذا نختار (اسم المنصة)؟</a></li>
+                            <li><a href="#features"><i class="fas fa-question-circle"></i> لماذا نختار {{ $platformName }}؟</a></li>
                         @endguest
                         @auth
                             <li><a href="#subjects"><i class="fas fa-book"></i> المواد الدراسية</a></li>
@@ -43,29 +44,17 @@
             <h3 class="animate-fade-in-up">وسائل التواصل</h3>
             <p class="animate-slide-in-right">تواصل معنا عبر الوسائل التالية:</p>
             <div class="social-icons">
-                <a href="https://www.facebook.com/share/1Hoqd9YPM1/?mibextid=wwXIfr" class="social-icon facebook" target="_blank" data-delay="0.1" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com" class="social-icon instagram" target="_blank" data-delay="0.2" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/201557582785?text=أنا%20طالب%20من%20منصة%20(اسم المنصة)%20وعايز%20أتواصل%20مع%20الدعم" 
-                    class="social-icon whatsapp" 
-                    target="_blank" data-delay="0.3" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://youtube.com" class="social-icon youtube" target="_blank" data-delay="0.4" aria-label="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://twitter.com" class="social-icon twitter" target="_blank" data-delay="0.5" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
+                @foreach ($socialLinks as $platform => $link)
+                    <a href="{{ $link }}" class="social-icon {{ $platform }}" target="_blank" data-delay="0.1" aria-label="{{ ucfirst($platform) }}">
+                        <i class="fab fa-{{ $platform }}"></i>
+                    </a>
+                @endforeach
             </div>
             
             <div class="footer-links">
                 <ul class="stagger-animation">
-                    <li><a href="tel:201557582785"><i class="fas fa-phone"></i>2785 758 155 20+</a></li>
-                    <li><a href="mailto:omaranos517@gmail.com"><i class="fas fa-envelope"></i>info@al-azhari.edu</a></li>
+                    <li><a href="tel:{{ $phone }}"><i class="fas fa-phone"></i>{{ $phone }}</a></li>
+                    <li><a href="mailto:{{ $email }}"><i class="fas fa-envelope"></i>{{ $email }}</a></li>
                 </ul>
             </div>
         </div>
@@ -77,19 +66,15 @@
     
     <div class="footer-bottom">
         <div class="copyright">
-            <p>© <span id="year"></span> نظام (اسم المنصة) التعليمي. جميع الحقوق محفوظة | تم التصميم والتطوير بواسطة <a href="https://omaranos517.vercel.app" target="_blank" rel="noopener noreferrer" id="designer-link">عمر عنوس</a>.</p>
+            <p>© <span id="year"></span> نظام {{ $platformName }} التعليمي. جميع الحقوق محفوظة | تم التصميم والتطوير بواسطة <a href="{{ $designerLink }}" target="_blank" rel="noopener noreferrer" id="designer-link">{{ $designerName }}</a>.</p>
         </div>
         
         <div class="footer-badges">
-            <div class="badge">
-                <i class="fas fa-lock"></i> آمن ومحمي
-            </div>
-            <div class="badge">
-                <i class="fas fa-certificate"></i> جودة عالية
-            </div>
-            <div class="badge">
-                <i class="fas fa-users"></i> مجتمع نشط
-            </div>
+            @foreach ($badges as $badge)
+                <div class="badge">
+                    <i class="fas fa-{{ $badge['icon'] }}"></i> {{ $badge['text'] }}
+                </div>
+            @endforeach
         </div>
     </div>
 </footer>

@@ -2,9 +2,9 @@
     <div class="logo">
         <img src="{{ asset('images/logo-dark.png') }}" alt="شعار المنصة" id="logo-img">
         @if (($showNavBtns ?? 'main') === 'main')
-            <a href='#hero'>(اسم المنصة)</a>
+            <a href='#hero'>{{ $settings->platform_name }}</a>
         @else
-            <a href="{{ route('home')}}">(اسم المنصة)</a>
+            <a href="{{ route('home')}}">{{ $settings->platform_name }}</a>
         @endif
     </div>
 
