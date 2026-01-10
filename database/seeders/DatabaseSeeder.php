@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             SubjectsSeeder::class,
-            SettingSeeder::class,
-            SocialLinkSeeder::class
+            SettingsSeeder::class,
+            SocialLinksSeeder::class
             // ** And any other seeders i want to run
         ]);
     }

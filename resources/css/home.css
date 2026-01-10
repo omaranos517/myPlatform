@@ -433,6 +433,13 @@ body.dark-mode .testimonial-text {
     transform: translateY(0);
 }
 
+.subject-card,
+.stat-card,
+.feature,
+.testimonial-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 /* hover effect — will now override .in-view because it's applied from stylesheet */
 .testimonial-card:hover,
 .subject-card:hover,
@@ -442,15 +449,7 @@ body.dark-mode .testimonial-text {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.24);
 }
 
-/* تحسينات للبطاقات */
-.subject-card,
-.stat-card,
-.feature,
-.testimonial-card {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* ========== وسائط الاستجابة للشاشات ========== */
+/* !========== وسائط الاستجابة للشاشات ========== */
 
 /* شاشات كبيرة (أجهزة سطح المكتب) */
 @media (min-width: 1200px) {

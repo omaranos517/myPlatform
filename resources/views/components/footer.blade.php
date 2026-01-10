@@ -13,7 +13,6 @@
                     </div>
                 </div>
                 <p style="font-size: 0.8rem; opacity: 0.7;">سنرسل لك آخر التحديثات والعروض الخاصة</p>
-                <p>the value of footerLinks is: {{ $footerLinks }}</p>
             </div>
         </div>
         
