@@ -19,7 +19,7 @@
 - Blade Templates
 - Vite
 
-## متطلبات التثبيت
+## ⚙️ متطلبات التثبيت
 
 - PHP 8.1 أو أحدث
 - Composer
