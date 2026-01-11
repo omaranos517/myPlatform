@@ -6,7 +6,6 @@
         
         <form id="supportForm" action="{{ $guest ? route('guest.support.submit') : route('support.submit') }}" method="POST" enctype="multipart/form-data">
             @csrf
-              
             @if($guest)
                 <div class="form-group">
                     <label for="name">اسم المستخدم:</label>

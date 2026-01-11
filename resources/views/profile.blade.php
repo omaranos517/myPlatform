@@ -3,8 +3,6 @@
 @section('title', 'إدارة الحساب - ' . $settings->platform_name)
 
 @section('content')
-    <!-- Header -->
-    <x-header show-nav-btns="account" />
     <!-- Back Button -->
     @include('partials.backBtn')
     <!-- Main Content -->
@@ -245,15 +243,12 @@
             </div>
         </div>
     </div>
-    
-    <!-- Footer -->
-    <x-footer 
-        :platformName="$settings->platform_name"
-        :socialLinks="$socialLinks"
-        :phone="$settings->phone"
-        :email="$settings->email"
-    />
 @endsection
+
+@php
+    $showNavBtns = 'account';
+    $footerExpanded = false;
+@endphp
 
 @pushOnce('styles')
     @vite([

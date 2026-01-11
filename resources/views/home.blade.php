@@ -3,7 +3,6 @@
 @section('title', 'المنصة التعليمية الأولي - ' . $settings->platform_name)
 
 @section('content')
-    <x-header show-nav-btns="main" />
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-content" id="hero-content">
@@ -176,17 +175,15 @@
             </div>
         </section>
     @endauth
-    <!-- Footer -->
-    <x-footer 
-        :platformName="$settings->platform_name"
-        :expanded="true"
-        :socialLinks="$socialLinks"
-        :phone="$settings->phone"
-        :email="$settings->email"
-    />
+    
     <!-- Back to Top Button -->
     @include('partials.backToTopBtn')
 @endsection
+
+@php
+    $showNavBtns = 'main';
+    $footerExpanded = true;
+@endphp
 
 @pushOnce('styles')
     @vite([

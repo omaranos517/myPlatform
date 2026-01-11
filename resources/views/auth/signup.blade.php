@@ -1,22 +1,8 @@
+@extends('layouts.app')
 
+@section('title', 'إنشاء حساب - ' . $settings->platform_name)
 
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء حساب - {{ $settings->platform_name }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    @vite([
-        'resources/css/shared.css',
-        'resources/css/signup.css',
-        'resources/css/header.css',
-    ])
-</head>
-<body>
-    <!-- Header -->
-    <x-header show-nav-btns="" />
+@section('content')
     <!-- Signin Container -->
     <div class="login-container">
         <div class="login-card">
@@ -131,10 +117,16 @@
             </div>
         </div>
     </div>
+@endsection
 
-    @vite([
-        'resources/js/signup.js',
-        'resources/js/header.js',
-    ])
-</body>
-</html>
+@php
+    $showNavBtns = '';
+    $footerExpanded = false;
+@endphp
+
+@pushOnce('styles')
+    @vite( 'resources/css/pages/signup.css' )
+@endpushOnce
+@pushOnce('scripts')
+    @vite( 'resources/js/pages/signup.js' )
+@endpushOnce

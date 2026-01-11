@@ -14,9 +14,21 @@
 <body>
     <x-flash-message />
     <x-support-model />
-    <!-- المحتوى الرئيسي -->
+
+    <!-- Header -->
+    <x-header :show-nav-btns="$showNavBtns" />
+
+    <!-- Content -->
     @yield('content')
 
+    <!-- Footer -->
+    <x-footer 
+        :platformName="$settings->platform_name"
+        :expanded="$footerExpanded"
+        :socialLinks="$socialLinks"
+        :phone="$settings->phone"
+        :email="$settings->email"
+    />
     <!--  Shared Scripts -->
     @vite('resources/js/app.js')
     @stack('scripts')

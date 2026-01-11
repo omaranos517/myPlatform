@@ -3,8 +3,6 @@
 @section('title', $subject['name'] . ' - ' . $settings->platform_name)
 
 @section('content')
-    <!-- Header -->
-    <x-header show-nav-btns="" />
     <!-- Back Button -->
     @include('partials.backBtn')
     <div class="lessons-container">
@@ -28,14 +26,7 @@
             </div>
         @endforelse
     </div>
-    <!-- Footer -->
-    <x-footer 
-        :platformName="$settings->platform_name"
-        :socialLinks="$socialLinks"
-        :phone="$settings->phone"
-        :email="$settings->email"
-        :footerLinks=null
-    />
+
     <!-- back to top button -->
     @include('partials.backToTopBtn')
     <script>
@@ -47,6 +38,11 @@
         });
     </script>
 @endsection
+
+@php
+    $showNavBtns = '';
+    $footerExpanded = true;
+@endphp
 
 @pushOnce('styles')
     @vite([

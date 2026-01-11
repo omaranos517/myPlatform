@@ -3,8 +3,6 @@
 @section('title', 'تسجيل الدخول - ' . $settings->platform_name)
 
 @section('content')
-    <!-- Header -->
-    <x-header show-nav-btns="" />
     <!-- Login Form -->
     <div class="login-container">
         <div class="login-card">
@@ -72,9 +70,12 @@
             </div>
         </div>
     </div>
-    <!-- Footer -->
-    <x-footer :platformName="$settings->platform_name" />
 @endsection
+
+@php
+    $showNavBtns = '';
+    $footerExpanded = false;
+@endphp
 
 @pushOnce('styles')
     @vite('resources/css/pages/login.css')

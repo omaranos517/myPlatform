@@ -3,8 +3,6 @@
 @section('title', $course->title . ' - ' . $settings->platform_name)
 
 @section('content')
-    <!-- Header -->
-    <x-header show-nav-btns="" />
     <!-- Back Button -->
     @include('partials.backBtn')
     <div class="course-container">
@@ -58,16 +56,14 @@
         </div>
     </div>
 
-    <!-- Footer Section -->
-    <x-footer 
-        :platformName="$settings->platform_name"
-        :socialLinks="$socialLinks"
-        :phone="$settings->phone"
-        :email="$settings->email"
-    />
     <!-- Back To Top -->
     @include('partials.backToTopBtn')
 @endsection
+
+@php
+    $showNavBtns = '';
+    $footerExpanded = true;
+@endphp
 
 @pushOnce('styles')
     @vite([
