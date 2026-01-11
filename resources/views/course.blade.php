@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $course->title }} - اسم المنصة التعليمية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    @vite([
-        'resources/css/course.css',
-        'resources/css/shared.css',
-        'resources/css/header.css',
-        'resources/css/footer.css',
-        'resources/css/loading-screen.css',
-        'resources/css/backToTopBtn.css',
-        'resources/css/backBtn.css',
-    ])    
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', $course->title . ' - ' . $settings->platform_name)
+
+@section('content')
     <!-- Header -->
     <x-header show-nav-btns="" />
     <!-- Back Button -->
@@ -81,13 +67,19 @@
     />
     <!-- Back To Top -->
     @include('partials.backToTopBtn')
+@endsection
 
+@pushOnce('styles')
     @vite([
-        'resources/js/loading-screen.js',
-        'resources/js/header.js',
-        'resources/js/footer.js',
-        'resources/js/backToTopBtn.js',
-        'resources/js/backBtn.js',
+        'resources/css/pages/course.css',
+        'resources/css/components/backBtn.css',
+        'resources/css/components/backToTopBtn.css',
     ])
-</body>
-</html>
+@endpushOnce
+@pushOnce('scripts')
+    @vite([
+        'resources/js/pages/course.js',
+        'resources/js/components/backBtn.js',
+        'resources/js/components/backToTopBtn.js',
+    ])
+@endpushOnce

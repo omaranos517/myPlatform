@@ -288,6 +288,12 @@ footer::before {
     transition: background-position 0.5s ease;
 }
 
+.social-icon.pinterest {
+    background: linear-gradient(60deg, #cc0000, #8b1616);
+    background-size: 100% 100%;
+    transition: background-position 0.5s ease;
+}
+
 .social-icon.instagram:hover {
     background-position: 100% 100%;
 }
@@ -295,7 +301,13 @@ footer::before {
 .social-icon.facebook:hover,
 .social-icon.twitter:hover,
 .social-icon.whatsapp:hover,
-.social-icon.youtube:hover {
+.social-icon.youtube:hover,
+.social-icon.tiktok:hover,
+.social-icon.telegram:hover,
+.social-icon.x:hover,
+.social-icon.linkedin:hover,
+.social-icon.email:hover,
+.social-icon.pinterest:hover {
     background-position: 50% 50%;
 }
 
@@ -434,118 +446,6 @@ footer::before {
     100% {
         background-position: 0% 50%;
     }
-}
-
-/* *! Support model */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1100;
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--card-light);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-body.dark-mode .modal-content {
-    background: var(--card-dark);
-}
-
-.modal-content h3 {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--primary);
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--gray);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.form-group select,
-.form-group textarea,
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius);
-    font-family: "Cairo", sans-serif;
-    transition: var(--transition);
-}
-
-body.dark-mode .form-group select,
-body.dark-mode .form-group textarea,
-body.dark-mode .form-group input {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-    border-color: #444;
-}
-
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(
-        135deg,
-        var(--primary) 0%,
-        var(--primary-dark) 100%
-    );
-    color: white;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-family: "Cairo", sans-serif;
-    font-weight: 600;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.submit-btn:hover {
-    background: linear-gradient(
-        135deg,
-        var(--primary-dark) 0%,
-        var(--primary) 100%
-    );
-    transform: translateY(-3px);
 }
 
 /* ** Support Button */

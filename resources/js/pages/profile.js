@@ -1,4 +1,26 @@
-// جعل الوضع النهاري هو الافتراضي
+const delete_account_btn = document.getElementById("delete-account-button");
+const delete_form = document.getElementById("delete-account-form");
+
+// ! Confirm account deletion
+function confirmDelete() {
+    if (
+        confirm(
+            "هل أنت متأكد من أنك تريد حذف حسابك؟ هذا الإجراء لا يمكن التراجع عنه.",
+        )
+    ) {
+        alert("سيتم توجيهك إلى صفحة تأكيد حذف الحساب");
+        delete_form.submit();
+    }
+}
+
+// * Confirm account deletion
+if (delete_account_btn && delete_form) {
+    delete_account_btn.addEventListener("click", confirmDelete);
+}
+
+// ! =============================================================================
+// ? it needs fast look in the future i don't know why it's called toggleSection
+// ! =============================================================================
 document.addEventListener("DOMContentLoaded", function () {
     toggleSection();
 });
@@ -34,19 +56,6 @@ function toggleEditMode(formId, infoId) {
 function cancelEdit(formId, infoId) {
     document.getElementById(formId).style.display = "none";
     document.getElementById(infoId).style.display = "block";
-}
-
-// تأكيد حذف الحساب
-function confirmDelete() {
-    if (
-        confirm(
-            "هل أنت متأكد من أنك تريد حذف حسابك؟ هذا الإجراء لا يمكن التراجع عنه.",
-        )
-    ) {
-        alert("سيتم توجيهك إلى صفحة تأكيد حذف الحساب");
-        // يمكن توجيه المستخدم إلى صفحة حذف الحساب هنا
-        // window.location.href = 'delete_account.php';
-    }
 }
 
 // تبديل إظهار/إخفاء كلمة المرور

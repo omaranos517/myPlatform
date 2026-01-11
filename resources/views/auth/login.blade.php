@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - {{ $settings->platform_name }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    @vite([
-        'resources/css/shared.css',
-        'resources/css/login.css',
-        'resources/css/header.css',
-    ])
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'تسجيل الدخول - ' . $settings->platform_name)
+
+@section('content')
     <!-- Header -->
     <x-header show-nav-btns="" />
     <!-- Login Form -->
@@ -82,9 +72,13 @@
             </div>
         </div>
     </div>
-    @vite([
-        'resources/js/login.js',
-        'resources/js/header.js',
-    ])
-</body>
-</html>
+    <!-- Footer -->
+    <x-footer :platformName="$settings->platform_name" />
+@endsection
+
+@pushOnce('styles')
+    @vite('resources/css/pages/login.css')
+@endpushOnce
+@pushOnce('scripts')
+    @vite('resources/js/pages/login.js')
+@endpushOnce

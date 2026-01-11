@@ -1,30 +1,8 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $settings->platform_name }} - المنصة التعليمية الأولى</title>
-    @vite([
-        'resources/css/shared.css',
-        'resources/css/home.css',
-        'resources/css/header.css',
-        'resources/css/footer.css',
-        'resources/css/backToTopBtn.css',
-        'resources/css/loading-screen.css',
-    ])
-    <meta name="description" content="انضم إلى {{ $settings->platform_name }}، أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية. دروس مباشرة، تسجيلات، واختبارات تفاعلية مع أفضل المدرسين.">
-    <meta name="keywords" content="{{ $settings->platform_name }}, منصة تعليمية, دروس أونلاين, المرحلة الإعدادية, المرحلة الثانوية, تعليم مصر, دروس خصوصية, مدرسين متخصصين">
-    <meta name="author" content="The Platform Team">
-    <meta property="og:title" content="{{ $settings->platform_name }} - المنصة التعليمية الأولى">
-    <meta property="og:description" content="انضم إلى {{ $settings->platform_name }}، أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية. دروس مباشرة، تسجيلات، واختبارات تفاعلية مع أفضل المدرسين.">
-    <meta property="og:image" content="https://www.alazhariplatform.com/GUI/light-mode-bg.png">
-    <meta property="og:type" content="website">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-</head>
-<body>
-    <!-- Header -->
+@extends('layouts.app')
+
+@section('title', 'المنصة التعليمية الأولي - ' . $settings->platform_name)
+
+@section('content')
     <x-header show-nav-btns="main" />
     <!-- Hero Section -->
     <section class="hero" id="hero">
@@ -201,18 +179,24 @@
     <!-- Footer -->
     <x-footer 
         :platformName="$settings->platform_name"
+        :expanded="true"
         :socialLinks="$socialLinks"
         :phone="$settings->phone"
         :email="$settings->email"
     />
     <!-- Back to Top Button -->
     @include('partials.backToTopBtn')
+@endsection
+
+@pushOnce('styles')
     @vite([
-        'resources/js/header.js',
-        'resources/js/footer.js',
-        'resources/js/loading-screen.js',
-        'resources/js/home.js',
-        'resources/js/backToTopBtn.js',
+        'resources/css/pages/home.css',
+        'resources/css/components/backToTopBtn.css',
     ])
-</body>
-</html>
+@endpushOnce
+@pushOnce('scripts')
+    @vite([
+        'resources/js/pages/home.js',
+        'resources/js/components/backToTopBtn.js',
+    ])
+@endpushOnce

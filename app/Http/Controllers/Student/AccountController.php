@@ -5,15 +5,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class AccountController extends Controller
 {
+    // ! Profile page preparation
     public function index()
     {
         $student = Auth::guard('student')->user();
         return view('profile', compact('student'));
     }
 
+    // ! Profile page actions
     public function updateProfile(Request $request)
     {
         $student = Auth::guard('student')->user();
@@ -37,6 +40,7 @@ class AccountController extends Controller
         }
     }
 
+    // ! Update academic information logic
     public function updateAcademic(Request $request)
     {
         try {
@@ -63,6 +67,7 @@ class AccountController extends Controller
         }
     }
 
+    // ! Change password logic
     public function changePassword(Request $request)
     {
         $student = Auth::guard('student')->user();
@@ -81,5 +86,29 @@ class AccountController extends Controller
         ]);
 
         return back()->with('password_success', 'تم تغيير كلمة المرور بنجاح');
+    }
+
+    // ! Delete account 
+    // ? in the future it will be used for deleting files of the user and then deleting the user itself
+    public function deleteAccount()
+    {
+
+        $user = Auth::guard('student')->user();
+
+        DB::transaction(function () use ($user) {
+
+            // 3. تسجيل خروجه
+            Auth::logout();
+
+            // ? سيكون هنا حزف اي مرفقات للمستخدم في المستقبل
+
+            // 4. حذف الحساب نفسه
+            $user->delete();
+        });
+        // 5. تدمير الجلسة
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+        return redirect('/')->with('status', 'تم حذف حسابك نهائيًا');
     }
 }

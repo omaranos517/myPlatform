@@ -23,10 +23,10 @@ Route::post('/signup', [SignupController::class, 'process'])->name('signup.proce
 Route::get('/login', [LoginController::class, 'showForm'])->name('login');
 Route::post('/login', [LoginController::class, 'process'])->name('login.process');
 
-Route::post('/support', function () {
+Route::get('/support', function () {
     abort(503, 'Support system under development');
 })
-->name('support.submit');
+->name('guest.support.submit');
 
 /*
 |--------------------------------------------------------------------------
@@ -40,12 +40,18 @@ Route::middleware('auth:student')->group(function () {
     Route::post('/account/profile', [AccountController::class, 'updateProfile'])->name('account.profile');
     Route::post('/account/academic', [AccountController::class, 'updateAcademic'])->name('account.academic');
     Route::post('/account/password', [AccountController::class, 'changePassword'])->name('account.password');
+    Route::delete('/account/delete-account', [AccountController::class, 'deleteAccount'])->name('account.delete');
 
     // صفحة المادة (ID إجباري)
     Route::get('/subject/{subject}', [SubjectController::class, 'show'])
         ->name('subjects.show');
 
     Route::get('/course/{course}', [SubjectController::class, 'showCourse'])->name('courses.show');
+
+    Route::post('/support', function () {
+        abort(503, 'Support system under development');
+    })
+    ->name('support.submit');
 
     Route::post('/logout', function () {
         auth('student')->logout();

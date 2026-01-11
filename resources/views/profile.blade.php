@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إدارة الحساب - {{ $settings->platform_name }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    @vite([
-        'resources/css/shared.css',
-        'resources/css/profile.css',
-        'resources/css/header.css',
-        'resources/css/loading-screen.css',
-        'resources/css/backBtn.css',
-    ])
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'إدارة الحساب - ' . $settings->platform_name)
+
+@section('content')
     <!-- Header -->
     <x-header show-nav-btns="account" />
     <!-- Back Button -->
@@ -247,19 +235,35 @@
                     <strong>حالة الحساب</strong>
                     <span style="color: var(--success);">نشط</span>
                 </div>
-                
-                <button class="btn-danger" onclick="confirmDelete()">
-                    <i class="fas fa-trash"></i> حذف الحساب
-                </button>
+                <form id="delete-account-form" method="POST" action="{{ route('account.delete')}}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn-danger" id="delete-account-button">
+                        <i class="fas fa-trash"></i> حذف الحساب
+                    </button>
+                </form>
             </div>
         </div>
     </div>
+    
+    <!-- Footer -->
+    <x-footer 
+        :platformName="$settings->platform_name"
+        :socialLinks="$socialLinks"
+        :phone="$settings->phone"
+        :email="$settings->email"
+    />
+@endsection
 
+@pushOnce('styles')
     @vite([
-        'resources/js/profile.js',
-        'resources/js/header.js',
-        'resources/js/loading-screen.js',
-        'resources/js/backBtn.js',
+        'resources/css/pages/profile.css',
+        'resources/css/components/backBtn.css',
     ])
-</body>
-</html>
+@endpushOnce
+@pushOnce('scripts')
+    @vite([
+        'resources/js/pages/profile.js',
+        'resources/js/components/backBtn.js',
+    ])
+@endpushOnce

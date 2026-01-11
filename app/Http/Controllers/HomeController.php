@@ -33,13 +33,11 @@ class HomeController extends Controller
 
         return view('home', [
             'subjects' => $subjects,
-            'showNavBtns' => 'main',
             'firstName' => $firstName,
             'totalStudents' => rand(500, 5000),
             'successRate' => rand(80, 95),
             'totalTeachers' => rand(10, 50),
             'ParentalSatisfaction' => rand(85, 98),
-            'showNavBtns' => 'main',
         ]);
     }
 }

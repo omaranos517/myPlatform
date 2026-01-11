@@ -11,6 +11,8 @@ class Footer extends Component
     public $socialLinks;
     public $phone;
     public $email;
+    public $expanded;
+
     public $designerName;
     public $designerLink;
     public $badges;
@@ -22,6 +24,8 @@ class Footer extends Component
         $socialLinks = null,
         $phone = null,
         $email = null,
+        $expanded = null,
+
         $designerName = null,
         $designerLink = null,
         $badges = null,
@@ -32,6 +36,8 @@ class Footer extends Component
         $this->socialLinks = $socialLinks ?? [];
         $this->phone = $phone ?? '201557582785';
         $this->email = $email ?? 'info@al-azhari.edu';
+        $this->expanded = $expanded ?? false;
+        
         $this->designerName = $designerName ?? 'عمر عنوس';
         $this->designerLink = $designerLink ?? 'https://omaranos517.vercel.app';
         $this->badges = $badges ?? [
