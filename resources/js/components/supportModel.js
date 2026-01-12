@@ -1,14 +1,19 @@
 const supportModal = document.getElementById("supportModal");
 const closeSupportBtn = document.getElementById("closeSupportModel");
 
-// *! Open Support Modal when any support button is clicked
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".support-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            openSupportModal();
-        });
-    });
+// *! Open Support Modal when button with data-action="open-support" is clicked
+document.addEventListener("click", function (e) {
+    const el = e.target.closest("[data-action]");
+    if (!el) return;
+
+    const action = el.dataset.action;
+
+    if (action === "open-support") {
+        openSupportModal();
+    }
+
 });
+
 
 // *! Close Support Modal when close button is clicked
 closeSupportBtn.addEventListener("click", closeSupportModal);

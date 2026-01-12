@@ -37,7 +37,7 @@ body.dark-mode .modal-content {
     color: var(--primary);
 }
 
-.close {
+.close-support-model {
     position: absolute;
     top: 15px;
     left: 15px;

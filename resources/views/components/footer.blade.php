@@ -60,7 +60,7 @@
             </div>
         </div>
         
-        <button class="support-btn animate-pulse-slow" id="supportBtn" aria-label="Support Button">
+        <button class="support-btn animate-pulse-slow" data-action="open-support" aria-label="Support Button">
             <i class="fas fa-headset"></i> الإبلاغ عن مشكلة
         </button>
     @endif

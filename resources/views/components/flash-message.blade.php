@@ -45,7 +45,7 @@
                     </button>
                     
                     @if($alertType === 'error' || $alertType === 'warning')
-                        <button class="support-btn animate-pulse-slow" id="supportBtn">
+                        <button class="support-btn animate-pulse-slow" data-action="open-support" aria-label="Report an Issue">
                             <i class="fas fa-headset"></i> الإبلاغ عن مشكلة
                         </button>
                     @endif

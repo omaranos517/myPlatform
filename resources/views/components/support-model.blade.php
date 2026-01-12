@@ -1,7 +1,7 @@
 <!-- Support Modal -->
 <div id="supportModal" class="modal">
     <div class="modal-content">
-        <span class="close" id="closeSupportModel">&times;</span>
+        <span class="close-support-model" id="closeSupportModel">&times;</span>
         <h3><i class="fas fa-headset"></i> الإبلاغ عن مشكلة</h3>
         
         <form id="supportForm" action="{{ $guest ? route('guest.support.submit') : route('support.submit') }}" method="POST" enctype="multipart/form-data">
@@ -38,7 +38,7 @@
                 <label for="screenshot">إضافة صورة (اختياري):</label>
                 <input type="file" id="screenshot" name="screenshot" accept="image/*">
             </div>
-          
+
             <button type="submit" class="submit-btn">
                 <i class="fas fa-paper-plane"></i> إرسال البلاغ
             </button>
