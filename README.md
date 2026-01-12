@@ -16,12 +16,12 @@
 - Laravel 12
 - PHP 8.x
 - MySQL
-- Blade Templates
+- Blade Templates ( stracks, layouts, views, components )
 - Vite
 
 ## ⚙️ متطلبات التثبيت
 
-- PHP 8.1 أو أحدث
+- PHP ≥ 8.1
 - Composer
 - Node.js + npm
 - Git
