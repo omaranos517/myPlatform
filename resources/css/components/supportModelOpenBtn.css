@@ -1,0 +1,163 @@
+
+/* ** Support Button */
+.support-btn {
+    position: relative;
+    overflow: hidden;
+
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-family: "Cairo", sans-serif;
+    font-weight: 600;
+    color: white;
+    background: transparent;
+
+    box-shadow: 0 4px 12px rgba(241, 196, 15, 0.3);
+    transition: box-shadow 0.3s;
+}
+
+/* **gradient layer */
+.support-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        var(--warning),
+        #e67e22,
+        var(--warning),
+        #e6ab22
+    );
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+
+    z-index: -1;
+    transition: background-position 1.5s ease;
+}
+
+/* hover animation */
+.support-btn:hover::before {
+    animation: gradientMove 3s linear infinite;
+}
+
+.support-btn i {
+    font-size: 1.2rem;
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.support-btn:hover {
+    box-shadow: 0 6px 15px rgba(241, 196, 15, 0.4);
+}
+
+.support-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* *? Animations */
+
+/* ** background */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(30px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+}
+
+.stagger-animation > * {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.stagger-animation > *:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.stagger-animation > *:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.stagger-animation > *:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.stagger-animation > *:nth-child(4) {
+    animation-delay: 0.4s;
+}
+.stagger-animation > *:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse 2s ease-in-out infinite;
+}

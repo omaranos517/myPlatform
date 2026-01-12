@@ -1,4 +1,3 @@
-const supportBtn = document.getElementById("supportBtn");
 const closeSupportBtn = document.getElementById("closeSupportModel");
 
 document.getElementById("year").textContent = new Date().getFullYear();

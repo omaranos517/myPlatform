@@ -12,7 +12,7 @@
     @stack('styles')
 </head>
 <body>
-    <x-flash-message />
+    <x-flash-message type="info" message="تم تسجيل الدخول بنجاح" />
     <x-support-model />
 
     <!-- Header -->
