@@ -163,6 +163,10 @@ body.dark-mode header ::after {
     gap: 8px;
 }
 
+.nav-btn span {
+    display: inline;
+}
+
 .nav-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
@@ -335,7 +339,6 @@ input:checked + .slider:before {
 @media (max-width: 767.98px) {
     .progress-container {
         height: 3.8px;
-        top: 95px;
     }
 
     .progress-bar {
@@ -347,36 +350,44 @@ input:checked + .slider:before {
     }
 
     header {
-        flex-direction: column;
         padding: 10px 4%;
     }
 
     .logo {
-        margin-bottom: 10px;
+        margin-right: 5%;
+    }
+   
+    .logo a {
+        display: none;
     }
 
     .nav-buttons {
         display: flex;
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
         gap: 10px;
+    }
+
+    .nav-btn i {
+        margin: 6px;
+    }
+
+    .nav-btn span {
+        display: none;
     }
 }
 
 /* الهواتف الصغيرة */
 @media (max-width: 575.98px) {
     .progress-container {
-        top: 85px;
+        top: 53px;
+    }
+
+    header {
+        padding: 8px 4%;
     }
 
     .container {
         width: 100%;
         padding: 0 15px;
-    }
-
-    .logo {
-        font-size: 18px;
     }
 
     .logo img {

@@ -13,23 +13,27 @@
         @if(($showNavBtns ?? 'main') === 'main')
             @auth
                 <button class="nav-btn" onclick="location.href='{{ route('account') }}'">
-                    <i class="fas fa-user-cog"></i> إدارة الحساب
+                    <i class="fas fa-user-cog"></i>
+                    <span>إدارة الحساب</span>
                 </button>
 
                 <form action="{{ route('logout') }}" method="POST" style="display:inline">
                     @csrf
                     <button class="nav-btn logout">
-                        <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>تسجيل الخروج</span>
                     </button>
                 </form>
             @endauth
             @guest
                 <button class="nav-btn" onclick="location.href='{{ route('login') }}'">
-                    <i class="fas fa-sign-in-alt"></i> تسجيل دخول
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>سجل الدخول</span>
                 </button>
 
                 <button class="nav-btn" onclick="location.href='{{ route('signup.showForm') }}'">
-                    <i class="fas fa-user-plus"></i> إنشاء حساب
+                    <i class="fas fa-user-plus"></i>
+                    <span>إعمل حساب</span>
                 </button>
             @endguest
         {{-- أزرار صفحة الحساب --}}
@@ -37,7 +41,8 @@
             <form action="{{ route('logout') }}" method="POST" style="display:inline">
                 @csrf
                 <button class="nav-btn logout">
-                    <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>تسجيل الخروج</span>
                 </button>
             </form>
         @endif
