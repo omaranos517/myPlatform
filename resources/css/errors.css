@@ -1,24 +1,8 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+@import "./shared.css";
 
 body {
-    font-family: "Cairo", sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-light);
-    transition: var(--transition);
-    overflow-x: hidden;
-    line-height: 1.6;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-body.dark-mode {
-    background-color: var(--bg-dark);
-    color: var(--text-dark);
 }
 
 /* المحتوى الرئيسي */
