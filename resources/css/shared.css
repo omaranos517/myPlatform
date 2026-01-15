@@ -22,3 +22,23 @@
     --transition: all 0.3s ease; /* Transition Effect */
     --border-radius: 10px; /* Border Radius */
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+    background: var(--bg-light);
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}

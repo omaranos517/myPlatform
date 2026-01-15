@@ -1,7 +1,5 @@
 :root {
     /* ألوان الوضع الفاتح */
-    --primary-light: #3498db;
-    --primary-dark-light: #2980b9;
     --secondary-light: #2c3e50;
     --accent-light: #e74c3c;
     --background-light: #f8f9fa;
@@ -13,13 +11,10 @@
     --warning-light: #f39c12;
 
     /* ألوان الوضع الداكن */
-    --primary-dark: #3498db;
-    --primary-dark-dark: #2980b9;
     --secondary-dark: #2c3e50;
     --accent-dark: #e74c3c;
     --background-dark: #121212;
     --card-dark: #1e1e1e;
-    --text-dark: #e6e6e6;
     --text-secondary-dark: #b0b0b0;
     --border-dark: #2d4059;
     --success-dark: #2ecc71;
@@ -28,28 +23,10 @@
     /* قيم مشتركة */
     --border-radius: 12px;
     --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: "Cairo", sans-serif;
-    background-color: var(--background-light);
-    color: var(--text-light);
-    line-height: 1.6;
-    transition: var(--transition);
-    min-height: 100vh;
     padding-bottom: 50px;
-}
-
-body.dark-mode {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
 }
 
 .container {
@@ -117,20 +94,12 @@ body.dark-mode .lesson-card {
 .lesson-header {
     background: linear-gradient(
         135deg,
-        var(--primary-light),
-        var(--primary-dark-light)
+        var(--primary),
+        var(--primary-dark)
     );
     color: white;
     padding: 20px;
     position: relative;
-}
-
-body.dark-mode .lesson-header {
-    background: linear-gradient(
-        135deg,
-        var(--primary-dark),
-        var(--primary-dark-dark)
-    );
 }
 
 .lesson-title {
@@ -153,7 +122,7 @@ body.dark-mode .lesson-header {
     display: inline-flex;
     align-items: center;
     padding: 10px 15px;
-    background-color: var(--primary-light);
+    background-color: var(--primary);
     color: white;
     border-radius: var(--border-radius);
     text-decoration: none;
@@ -181,7 +150,7 @@ body.dark-mode .video-link:hover {
 .section-title {
     font-size: 1.2rem;
     margin: 25px 0 15px;
-    color: var(--primary-light);
+    color: var(--primary);
     border-bottom: 2px solid var(--border-light);
     padding-bottom: 8px;
     display: flex;
@@ -196,7 +165,7 @@ body.dark-mode .section-title {
 
 .question-item {
     background-color: #f8f9fa;
-    border-right: 4px solid var(--primary-light);
+    border-right: 4px solid var(--primary);
     padding: 15px;
     margin-bottom: 15px;
     border-radius: var(--border-radius);
@@ -204,7 +173,7 @@ body.dark-mode .section-title {
 
 body.dark-mode .question-item {
     background-color: #2d4059;
-    border-right-color: var(--primary-dark);
+    border-right-color: var(--primary);
 }
 
 .question-text {
@@ -242,7 +211,7 @@ body.dark-mode .question-item {
 .attachment-link {
     display: inline-flex;
     align-items: center;
-    color: var(--primary-light);
+    color: var(--primary);
     text-decoration: none;
     transition: var(--transition);
     padding: 8px 0;

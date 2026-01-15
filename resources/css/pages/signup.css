@@ -1,24 +1,6 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: "Cairo", sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    color: var(--text-light);
-    transition:
-        background 0.4s ease,
-        color 0.4s ease;
-}
-
-body.dark-mode {
-    background: linear-gradient(135deg, #0f1a25 0%, #1a2b3a 100%);
-    color: var(--text-dark);
 }
 
 /* Login Container */

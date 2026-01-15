@@ -1,20 +1,5 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: "Cairo", sans-serif;
-    background-color: var(--bg-light);
-    color: var(--text-light);
-    transition: var(--transition);
     overflow-x: hidden;
-    line-height: 1.6;
-}
-
-body.dark-mode {
-    background-color: #172331;
 }
 
 /* Hero Section */

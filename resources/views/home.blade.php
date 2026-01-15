@@ -23,7 +23,7 @@
             @endauth
             @guest
                 <h1 class="animate__animated animate__fadeInDown">أهلاً بك في عائلة {{ $settings->platform_name }}</h1>
-                <p class="animate__animated animate__fadeInUp">أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية<br>أزهر - عام - لغات</p>
+                <p class="animate__animated animate__fadeInUp">أكبر منصة تعليمية متكاملة في مصر للمرحلتين الإعدادية والثانوية<br>عام - أزهر - لغات</p>
                 <div class="hero-buttons animate__animated animate__fadeInUp">
                     <a href="{{ route('signup.showForm') }}" class="hero-btn primary">
                         <i class="fas fa-user-plus"></i> انضم إلينا الآن
