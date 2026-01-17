@@ -1,6 +1,6 @@
 <header>
     <div class="logo">
-        <img src="{{ asset('images/logo-dark.png') }}" alt="شعار المنصة" id="logo-img">
+        <img src="{{ Vite::asset('resources/images/logo-dark.webp') }}" alt="شعار المنصة" id="logo-img">
         @if (($showNavBtns ?? 'main') === 'main')
             <a href='#hero'>{{ $settings->platform_name }}</a>
         @else

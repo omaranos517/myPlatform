@@ -307,7 +307,7 @@ input:checked + .slider:before {
 @media (max-width: 991.98px) {
     .progress-container {
         height: 4px;
-        top: 65px;
+        top: 67px;
     }
     .progress-bar {
         height: 4px;

@@ -2,6 +2,9 @@ const toggleBtn = document.getElementById("switch");
 const body = document.body;
 const logoImg = document.getElementById("logo-img");
 
+import logoDark from '../../images/logo-dark.webp';
+import logoLight from '../../images/logo-light.webp';
+
 // تهيئة تأثير التمرير
 window.addEventListener("scroll", handleScrollForHeader);
 
@@ -13,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (savedTheme === "dark") {
         body.classList.add("dark-mode");
         toggleBtn.checked = true;
-        logoImg.src = "../images/logo-light.png";
+        logoImg.src = logoLight;
     } else {
         body.classList.remove("dark-mode");
         toggleBtn.checked = false;
-        logoImg.src = "../images/logo-dark.png";
+        logoImg.src = logoDark;
     }
 
     // تهيئة تأثير التمرير
@@ -28,11 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
 toggleBtn.addEventListener("change", () => {
     if (toggleBtn.checked) {
         body.classList.add("dark-mode");
-        logoImg.src = "../images/logo-light.png";
+        logoImg.src = logoLight;
         localStorage.setItem("theme", "dark");
     } else {
         body.classList.remove("dark-mode");
-        logoImg.src = "../images/logo-dark.png";
+        logoImg.src = logoDark;
         localStorage.setItem("theme", "light");
     }
 });
