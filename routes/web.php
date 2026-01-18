@@ -23,6 +23,23 @@ Route::post('/signup', [SignupController::class, 'process'])->name('signup.proce
 Route::get('/login', [LoginController::class, 'showForm'])->name('login');
 Route::post('/login', [LoginController::class, 'process'])->name('login.process');
 
+Route::post('/theme/toggle', function () {
+
+    $user = auth('student')->user();
+
+    if (!$user) {
+        return response()->json(['status' => 'guest']);
+    }
+
+    $user->dark_mode = ! $user->dark_mode;
+    $user->save();
+
+    return response()->json([
+        'status' => 'ok',
+        'dark_mode' => $user->dark_mode
+    ]);
+})->name('theme.toggle');
+
 Route::get('/support', function () {
     abort(503, 'Support system under development');
 })

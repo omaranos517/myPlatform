@@ -21,6 +21,7 @@ class Student extends Authenticatable
         'educational_type',
         'class',
         'is_language',
+        'dark_mode',
     ];
 
     protected $hidden = [

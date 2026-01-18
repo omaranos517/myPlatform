@@ -10,10 +10,25 @@ window.addEventListener("scroll", handleScrollForHeader);
 
 // جعل الوضع النهاري هو الافتراضي
 document.addEventListener("DOMContentLoaded", function () {
-    // اقرأ الوضع المخزن من localStorage
+
+    const serverDarkMode = window.APP_DARK_MODE;
+
     const savedTheme = localStorage.getItem("theme");
 
-    if (savedTheme === "dark") {
+    console.log("Saved Theme:", savedTheme);
+
+    let finalTheme;
+
+    // ✅ لو مسجل دخول → السيرفر هو الأساس
+    if (typeof serverDarkMode === "boolean") {
+        finalTheme = serverDarkMode ? "dark" : "light";
+    }
+    // ✅ لو زائر → localStorage
+    else {
+        finalTheme = savedTheme ?? "light";
+    }
+
+    if (finalTheme === "dark") {
         body.classList.add("dark-mode");
         toggleBtn.checked = true;
         logoImg.src = logoLight;
@@ -23,13 +38,18 @@ document.addEventListener("DOMContentLoaded", function () {
         logoImg.src = logoDark;
     }
 
-    // تهيئة تأثير التمرير
+    localStorage.setItem("theme", finalTheme);
+
     handleScrollForHeader();
 });
 
+
 // التعامل مع تبديل الوضع
 toggleBtn.addEventListener("change", () => {
-    if (toggleBtn.checked) {
+    
+    const isDark = toggleBtn.checked;
+
+    if (isDark) {
         body.classList.add("dark-mode");
         logoImg.src = logoLight;
         localStorage.setItem("theme", "dark");
@@ -38,6 +58,17 @@ toggleBtn.addEventListener("change", () => {
         logoImg.src = logoDark;
         localStorage.setItem("theme", "light");
     }
+
+    // 🔥 إرسال التغيير لقاعدة البيانات
+    fetch("/theme/toggle", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document
+                .querySelector('meta[name="csrf-token"]')
+                .content,
+        },
+    });
 });
 
 function handleScrollForHeader() {

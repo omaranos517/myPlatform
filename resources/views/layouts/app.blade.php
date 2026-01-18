@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <title>@yield('title')</title>
 
@@ -10,7 +11,7 @@
     @vite('resources/css/app.css')
     @stack('styles')
 </head>
-<body>
+<body id="app" @class(['dark-mode' => $darkMode]) data-dark-mode="{{ $darkMode ? '1' : '0' }}">
     <x-flash-message />
     <x-support-model />
 
@@ -21,13 +22,16 @@
     @yield('content')
 
     <!-- Footer -->
-    <x-footer 
+    <x-footer
         :platformName="$settings->platform_name"
         :expanded="$footerExpanded"
         :socialLinks="$socialLinks"
         :phone="$settings->phone"
         :email="$settings->email"
     />
+    <script>
+        window.APP_DARK_MODE = @json($darkMode);
+    </script>
     <!--  Shared Scripts -->
     @vite('resources/js/app.js')
     @stack('scripts')

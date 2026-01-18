@@ -50,7 +50,7 @@
         {{-- Dark / Light Switch --}}
         <div class="light-switch">
             <label for="switch" class="switch">
-                <input id="switch" type="checkbox" class="switch"/>
+                <input id="switch" type="checkbox" class="switch" {{ $darkMode ? 'checked' : '' }}/>
                 <span class="slider"></span>
                 <span class="decoration"></span>
             </label>

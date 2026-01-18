@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('class', 50)->nullable();
             $table->boolean('is_language')->default(false);
 
+            $table->boolean('dark_mode')->default(false);
+
             $table->rememberToken();
             $table->timestamps();
         });

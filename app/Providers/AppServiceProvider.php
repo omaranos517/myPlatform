@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Administrator;
 use App\Models\Setting;
@@ -36,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             return in_array($user->role, ['support', 'content_manager', 'admin', 'super_admin']);
         });
 
-        // مشاركة الإعدادات
+        // *! Sharing settings
         if (Schema::hasTable('settings')) {
             $settings = Setting::first() ?? (object)[
                 'platform_name' => '(اسم المنصة)',
@@ -46,10 +47,24 @@ class AppServiceProvider extends ServiceProvider
             View::share('settings', $settings);
         }
 
-        // مشاركة روابط التواصل الاجتماعي
+        // *! Sharing social links
         if (Schema::hasTable('social_links')) {
             $socialLinks = SocialLink::all()->pluck('url', 'name')->toArray();
             View::share('socialLinks', $socialLinks);
         }
+
+        // *! Sharing dark mode preference with all views
+        View::composer('*', function ($view) {
+
+            $user = Auth::guard('student')->user();
+
+            if (session()->has('dark_mode')) {
+                $darkMode = session('dark_mode');
+            } else {
+                $darkMode = auth('student')->user()?->dark_mode ?? false;
+            }
+
+            $view->with('darkMode', $darkMode);
+        });
     }
 }
