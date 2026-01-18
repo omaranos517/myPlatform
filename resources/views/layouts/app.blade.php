@@ -11,7 +11,7 @@
     @vite('resources/css/app.css')
     @stack('styles')
 </head>
-<body id="app" @class(['dark-mode' => $darkMode]) data-dark-mode="{{ $darkMode ? '1' : '0' }}">
+<body id="app" @class(['dark-mode' => $darkMode])>
     <x-flash-message />
     <x-support-model />
 

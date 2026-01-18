@@ -7,4 +7,4 @@ import "./components/supportModel";
 
 const app = document.getElementById("app");
 
-const serverDarkMode = app?.dataset.darkMode === "1";
+const serverDarkMode = window.APP_DARK_MODE;

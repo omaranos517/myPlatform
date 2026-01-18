@@ -5,25 +5,23 @@ const logoImg = document.getElementById("logo-img");
 import logoDark from '../../images/logo-dark.webp';
 import logoLight from '../../images/logo-light.webp';
 
-// تهيئة تأثير التمرير
+// *! handle scroll for header progress bar
 window.addEventListener("scroll", handleScrollForHeader);
 
-// جعل الوضع النهاري هو الافتراضي
+// *! apply saved theme on load
 document.addEventListener("DOMContentLoaded", function () {
 
     const serverDarkMode = window.APP_DARK_MODE;
 
     const savedTheme = localStorage.getItem("theme");
 
-    console.log("Saved Theme:", savedTheme);
-
     let finalTheme;
 
-    // ✅ لو مسجل دخول → السيرفر هو الأساس
+    // ** If logged in user, use server preference
     if (typeof serverDarkMode === "boolean") {
         finalTheme = serverDarkMode ? "dark" : "light";
     }
-    // ✅ لو زائر → localStorage
+    // ** If not logged in, use saved preference
     else {
         finalTheme = savedTheme ?? "light";
     }
@@ -38,13 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
         logoImg.src = logoDark;
     }
 
-    localStorage.setItem("theme", finalTheme);
+    // ✅ تحديث localStorage فقط للزائر
+    if (typeof serverDarkMode !== "boolean") {
+        localStorage.setItem("theme", finalTheme);
+    }
 
     handleScrollForHeader();
 });
 
 
-// التعامل مع تبديل الوضع
+// *! handle theme toggle
 toggleBtn.addEventListener("change", () => {
     
     const isDark = toggleBtn.checked;
@@ -59,7 +60,7 @@ toggleBtn.addEventListener("change", () => {
         localStorage.setItem("theme", "light");
     }
 
-    // 🔥 إرسال التغيير لقاعدة البيانات
+    // *! Notify server about theme change
     fetch("/theme/toggle", {
         method: "POST",
         headers: {
