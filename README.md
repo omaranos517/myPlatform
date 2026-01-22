@@ -41,3 +41,8 @@ php artisan migrate
 php artisan db:seed
 npm run dev
 ```
+
+## 🔐 الترخيص
+
+هذا المشروع مرخّص تحت رخصة MIT.  
+راجع ملف [LICENSE](LICENSE).
