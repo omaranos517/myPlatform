@@ -2,15 +2,14 @@ const toggleBtn = document.getElementById("switch");
 const body = document.body;
 const logoImg = document.getElementById("logo-img");
 
-import logoDark from '../../images/logo-dark.webp';
-import logoLight from '../../images/logo-light.webp';
+import logoDark from "../../images/logo-dark.webp";
+import logoLight from "../../images/logo-light.webp";
 
 // *! handle scroll for header progress bar
 window.addEventListener("scroll", handleScrollForHeader);
 
 // *! apply saved theme on load
 document.addEventListener("DOMContentLoaded", function () {
-
     const serverDarkMode = window.APP_DARK_MODE;
 
     const savedTheme = localStorage.getItem("theme");
@@ -44,10 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
     handleScrollForHeader();
 });
 
-
 // *! handle theme toggle
 toggleBtn.addEventListener("change", () => {
-    
     const isDark = toggleBtn.checked;
 
     if (isDark) {
@@ -65,8 +62,7 @@ toggleBtn.addEventListener("change", () => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "X-CSRF-TOKEN": document
-                .querySelector('meta[name="csrf-token"]')
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
                 .content,
         },
     });

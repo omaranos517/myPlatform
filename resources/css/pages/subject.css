@@ -92,11 +92,7 @@ body.dark-mode .lesson-card {
 }
 
 .lesson-header {
-    background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--primary-dark)
-    );
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
     padding: 20px;
     position: relative;

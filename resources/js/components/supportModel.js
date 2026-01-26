@@ -11,13 +11,10 @@ document.addEventListener("click", function (e) {
     if (action === "open-support") {
         openSupportModal();
     }
-
 });
-
 
 // *! Close Support Modal when close button is clicked
 closeSupportBtn.addEventListener("click", closeSupportModal);
-
 
 // *! Open Support Modal module
 function openSupportModal() {

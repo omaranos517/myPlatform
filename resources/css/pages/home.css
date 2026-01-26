@@ -103,11 +103,6 @@ body.dark-mode .hero {
     backdrop-filter: blur(10px);
 }
 
-.hero-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
 /* *!Statistics Section */
 .stats-section {
     padding: 60px 5%;
@@ -264,15 +259,6 @@ body.dark-mode .subject-card-body h3 {
     transition: var(--transition);
 }
 
-.subject-link:hover {
-    background: linear-gradient(
-        90deg,
-        var(--primary-dark) 0%,
-        var(--primary) 100%
-    );
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
-}
-
 /* *! Motivation Section */
 .motivation-section {
     background: linear-gradient(
@@ -425,16 +411,31 @@ body.dark-mode .testimonial-text {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* hover effect — will now override .in-view because it's applied from stylesheet */
-.testimonial-card:hover,
-.subject-card:hover,
-.stat-card:hover,
-.feature:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.24);
-}
-
 /* *?========== Responsive Design ========== */
+@media (hover: hover) and (pointer: fine) {
+    .hero-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .subject-link:hover {
+        background: linear-gradient(
+            90deg,
+            var(--primary-dark) 0%,
+            var(--primary) 100%
+        );
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+    }
+
+    /* hover effect — will now override .in-view because it's applied from stylesheet */
+    .testimonial-card:hover,
+    .subject-card:hover,
+    .stat-card:hover,
+    .feature:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.24);
+    }
+}
 
 /* شاشات كبيرة (أجهزة سطح المكتب) */
 @media (min-width: 1200px) {

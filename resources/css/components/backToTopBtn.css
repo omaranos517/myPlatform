@@ -29,9 +29,11 @@
     visibility: visible;
 }
 
-.back-to-top:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+@media (hover: hover) and (pointer: fine) {
+    .back-to-top:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+    }
 }
 
 /* الهواتف الكبيرة */

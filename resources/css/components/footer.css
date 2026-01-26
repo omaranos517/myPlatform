@@ -112,17 +112,6 @@ footer::before {
     border-color: #222 transparent transparent transparent;
 }
 
-/* يظهر عند التمرير */
-.tooltip-wrapper:hover .tooltip {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-.tooltip-wrapper:active .tooltip {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
 .tooltip-wrapper:not(:has(button:disabled)) .tooltip {
     display: none;
 }
@@ -135,10 +124,6 @@ footer::before {
 .footer-links ul li {
     margin-bottom: 15px;
     transition: var(--transition);
-}
-
-.footer-links ul li:hover {
-    transform: translateX(-5px);
 }
 
 .footer-links ul li a {
@@ -155,15 +140,6 @@ footer::before {
     font-size: 16px;
     transition: var(--transition);
     opacity: 0;
-}
-
-.footer-links ul li a:hover {
-    color: var(--primary);
-    transform: translateX(-5px);
-}
-
-.footer-links ul li a:hover::before {
-    opacity: 1;
 }
 
 /* *!Social icons: */
@@ -293,19 +269,6 @@ footer::before {
     background-position: 100% 100%;
 }
 
-.social-icon.facebook:hover,
-.social-icon.twitter:hover,
-.social-icon.whatsapp:hover,
-.social-icon.youtube:hover,
-.social-icon.tiktok:hover,
-.social-icon.telegram:hover,
-.social-icon.x:hover,
-.social-icon.linkedin:hover,
-.social-icon.email:hover,
-.social-icon.pinterest:hover {
-    background-position: 50% 50%;
-}
-
 .social-icon::before {
     content: "";
     position: absolute;
@@ -320,15 +283,6 @@ footer::before {
     );
     transform: translateY(100%);
     transition: transform 0.4s ease;
-}
-
-.social-icon:hover {
-    animation-play-state: paused;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.social-icon:hover::before {
-    transform: translateY(0);
 }
 
 .newsletter-form {
@@ -371,10 +325,6 @@ footer::before {
     font-family: "Cairo", sans-serif;
     font-weight: 600;
     transition: var(--transition);
-}
-
-.newsletter-input button:hover {
-    background: var(--primary-dark);
 }
 
 .footer-bottom {
@@ -432,6 +382,59 @@ footer::before {
 }
 
 /* *? Responsive Design */
+@media (hover: hover) and (pointer: fine) {
+    .tooltip-wrapper:hover .tooltip {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .footer-links ul li:hover {
+        transform: translateX(-5px);
+    }
+
+    .footer-links ul li a:hover {
+        color: var(--primary);
+        transform: translateX(-5px);
+    }
+
+    .footer-links ul li a:hover::before {
+        opacity: 1;
+    }
+
+    .social-icon.facebook:hover,
+    .social-icon.twitter:hover,
+    .social-icon.whatsapp:hover,
+    .social-icon.youtube:hover,
+    .social-icon.tiktok:hover,
+    .social-icon.telegram:hover,
+    .social-icon.x:hover,
+    .social-icon.linkedin:hover,
+    .social-icon.email:hover,
+    .social-icon.pinterest:hover {
+        background-position: 50% 50%;
+    }
+
+    .social-icon:hover {
+        animation-play-state: paused;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-icon:hover::before {
+        transform: translateY(0);
+    }
+
+    .newsletter-input button:hover {
+        background: var(--primary-dark);
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .tooltip-wrapper:active .tooltip {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
