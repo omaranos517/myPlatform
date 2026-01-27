@@ -16,8 +16,14 @@
                     @csrf
                     <div class="form-group">
                         <label for="name"><i class="fas fa-user"></i> الاسم الكامل</label>
-                        <input type="text" name="name" id="name" placeholder="أدخل اسمك الثلاثي" required>
+                        <input type="text" name="name" id="name" placeholder="أدخل اسمك الثلاثي" value="{{ old('name') }}" required>
                     </div>
+                    @error('name')
+                        <div class="error-box">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @enderror
+
                     
                     <div class="form-group">
                         <label for="phone"><i class="fas fa-phone"></i> رقم الهاتف</label>
@@ -26,6 +32,11 @@
                             <input type="text" name="phone" id="phone" inputmode="numeric" pattern="01[0125][0-9]{8}" maxlength="11" title="رقم الهاتف خاطئ" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="01XXXXXXXXX" required>
                         </div>
                     </div>
+                    @error('phone')
+                        <div class="error-box">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @enderror
                     
                     <div class="form-group">
                         <label for="parent_phone"><i class="fas fa-phone"></i> رقم ولي الأمر</label>
@@ -45,6 +56,11 @@
                             <div class="password-strength-bar" id="password-strength-bar"></div>
                         </div>
                     </div>
+                    @error('password')
+                        <div class="error-box">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @enderror
                     
                     <div class="form-group">
                         <label for="confirm_password"><i class="fas fa-lock"></i> تأكيد كلمة السر</label>

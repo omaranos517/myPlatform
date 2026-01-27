@@ -188,7 +188,7 @@ body.dark-mode .password-strength {
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 20px;
-    display: none;
+    display: flex;
     border-left: 4px solid var(--danger);
     align-items: center;
     gap: 10px;

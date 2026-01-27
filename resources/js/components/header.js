@@ -16,8 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let finalTheme;
 
+    console.log(serverDarkMode);
     // ** If logged in user, use server preference
-    if (typeof serverDarkMode === "boolean") {
+    if (serverDarkMode) {
         finalTheme = serverDarkMode ? "dark" : "light";
     }
     // ** If not logged in, use saved preference

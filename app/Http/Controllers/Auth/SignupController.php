@@ -8,8 +8,6 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Student;
 
-
-
 class SignupController extends Controller
 {
     public function showForm()
@@ -58,7 +56,14 @@ class SignupController extends Controller
         }
 
         if (count($adjustedParts) < 3) {
-            return back()->withInput()->withErrors(['name' => 'نريد الاسم الثلاثي على الأقل.']);
+            return back()
+                ->withInput()
+                ->withErrors(['name' => 'نريد الاسم الثلاثي على الأقل.'])
+                ->with([
+                    'status', 
+                    'type' => 'error',
+                    'message' => 'يرجى إدخال الاسم الثلاثي بشكل صحيح.'
+                ]);
         }
 
         // منع رقم الطالب من أن يطابق رقم ولي الأمر
