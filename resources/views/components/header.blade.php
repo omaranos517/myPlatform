@@ -1,11 +1,14 @@
 <header>
     <div class="logo">
-        <img src="{{ Vite::asset('resources/images/logo-dark.webp') }}" alt="شعار المنصة" id="logo-img">
-        @if (($showNavBtns ?? 'main') === 'main')
-            <a href='#hero'>{{ $settings->platform_name }}</a>
-        @else
-            <a href="{{ route('home')}}">{{ $settings->platform_name }}</a>
-        @endif
+        @php
+            $logoUrl = (($showNavBtns ?? 'main') === 'main') ? '#hero' : route('home');
+        @endphp
+        
+        <a href='{{ $logoUrl }}'>
+            <img src="{{ Vite::asset('resources/images/logo-dark.webp') }}" alt="شعار المنصة" id="logo-img">
+            <span>{{ $settings->platform_name }}</span>
+        </a>
+        
     </div>
 
     <div class="nav-buttons">
@@ -56,9 +59,8 @@
             </label>
         </div>
     </div>
+    {{-- Progress Bar --}}
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
 </header>
-
-{{-- Progress Bar --}}
-<div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
-</div>

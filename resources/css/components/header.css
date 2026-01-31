@@ -1,8 +1,10 @@
 /* شريط تقدم التمرير */
 .progress-container {
     height: 5px;
-    position: fixed;
-    top: 72px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     background: transparent;
     background-color: var(--progress-bar-bg);
@@ -28,6 +30,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: 60px;
     padding: 15px 5%;
     background-color: var(--card-light);
     -webkit-backdrop-filter: blur(10px);
@@ -44,7 +47,6 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
     position: relative;
     cursor: pointer;
 }
@@ -69,6 +71,9 @@ header {
     -webkit-text-fill-color: transparent;
 
     transition: background-position 0.6s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* الصورة */
@@ -259,13 +264,13 @@ input:checked + .slider:before {
     }
 
     /* النص يتحول Gradient */
-    .logo:hover a {
+    .logo a:hover {
         background-position: 0% 0%;
         filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
     }
 
     /* الصورة تتفاعل */
-    .logo:hover img {
+    .logo a:hover img {
         transform: scale(1.08) rotate(-2deg);
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
     }
@@ -285,8 +290,8 @@ input:checked + .slider:before {
         transform: scaleX(1);
         transform-origin: left;
     }
-    
-    .logo:active img {
+
+    .logo a:active img {
         transform: scale(1.08) rotate(-2deg);
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
     }
@@ -313,8 +318,6 @@ input:checked + .slider:before {
 /* شاشات متوسطة (أجهزة لوحية أفقية) */
 @media (max-width: 1199.98px) {
     .progress-container {
-        top: 73px;
-        background-color: var(--progress-bar-bg);
         height: 3.6px;
     }
 
@@ -331,8 +334,8 @@ input:checked + .slider:before {
 @media (max-width: 991.98px) {
     .progress-container {
         height: 4px;
-        top: 67px;
     }
+
     .progress-bar {
         height: 4px;
     }
@@ -361,6 +364,10 @@ input:checked + .slider:before {
 
 /* الهواتف الكبيرة */
 @media (max-width: 767.98px) {
+    body.dark-mode .nav-btn {
+        box-shadow: none;
+    }
+
     .progress-container {
         height: 3.8px;
     }
@@ -374,20 +381,25 @@ input:checked + .slider:before {
     }
 
     header {
-        padding: 10px 4%;
+        padding: 12px 5%;
+        /* * لمشاكل النوتش في الهواتف */
+        padding-top: calc(env(safe-area-inset-top) + 10px);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
     }
 
     .logo {
         margin-right: 5%;
     }
 
-    .logo a {
+    .logo span {
         display: none;
     }
 
     .nav-buttons {
         display: flex;
-        gap: 10px;
+        align-items: center;
+        gap: 12px;
     }
 
     .nav-btn i {
@@ -401,10 +413,6 @@ input:checked + .slider:before {
 
 /* الهواتف الصغيرة */
 @media (max-width: 575.98px) {
-    .progress-container {
-        top: 53px;
-    }
-
     header {
         padding: 8px 4%;
     }
@@ -433,38 +441,6 @@ input:checked + .slider:before {
 
     header {
         position: relative;
-    }
-}
-
-/* تحسينات للوضع الداكن على الشاشات الصغيرة */
-@media (max-width: 767.98px) {
-    body.dark-mode .nav-btn {
-        box-shadow: none;
-    }
-}
-
-/* تحسينات للقوائم على الشاشات الصغيرة */
-@media (max-width: 767.98px) {
-    .footer-links ul li a:hover::before {
-        opacity: 0; /* إخفاء السهم على الهواتف لتوفير المساحة */
-    }
-}
-
-/* تحسينات للهواتف ذات الشقوق (Notch) */
-@media (max-width: 767.98px) {
-    .porgress-container {
-        top: env(safe-area-inset-top);
-        height: 3.8px;
-    }
-
-    .progress-bar {
-        height: 3.8px;
-    }
-
-    header {
-        padding-top: env(safe-area-inset-top);
-        padding-left: env(safe-area-inset-left);
-        padding-right: env(safe-area-inset-right);
     }
 }
 

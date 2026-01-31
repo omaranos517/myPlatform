@@ -457,3 +457,10 @@ footer::before {
         font-size: 0.3rem;
     }
 }
+
+/* تحسينات للقوائم على الشاشات الصغيرة */
+@media (max-width: 767.98px) {
+    .footer-links ul li a:hover::before {
+        opacity: 0; /* إخفاء السهم على الهواتف لتوفير المساحة */
+    }
+}
