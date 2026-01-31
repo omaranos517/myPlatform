@@ -8,64 +8,58 @@ import logoLight from "../../images/logo-light.webp";
 // *! handle scroll for header progress bar
 window.addEventListener("scroll", handleScrollForHeader);
 
+function applyTheme(theme) {
+    if (theme === "dark") {
+        body.classList.add("dark-mode");
+        if(toggleBtn) toggleBtn.checked = true;
+        if(logoImg) logoImg.src = logoLight;
+    } else {
+        body.classList.remove("dark-mode");
+        if(toggleBtn) toggleBtn.checked = false;
+        if(logoImg) logoImg.src = logoDark;
+    }
+}
+
 // *! apply saved theme on load
 document.addEventListener("DOMContentLoaded", function () {
-    const serverDarkMode = window.APP_DARK_MODE;
-
+    // 1. استلام القيمة من السيرفر (تأكد أنها Boolean أو null)
+    // نستخدم window.APP_DARK_MODE التي يفترض أنك مررتها في Blade
+    const serverDarkMode = window.APP_DARK_MODE; 
     const savedTheme = localStorage.getItem("theme");
 
     let finalTheme;
 
-    console.log(serverDarkMode);
-    // ** If logged in user, use server preference
-    if (serverDarkMode) {
+    // 2. منطق الأولوية الصحيح
+    // نتحقق مما إذا كانت القيمة ليست null وليست undefined (أي المستخدم مسجل)
+    if (serverDarkMode !== null && serverDarkMode !== undefined) {
         finalTheme = serverDarkMode ? "dark" : "light";
-    }
-    // ** If not logged in, use saved preference
+        
+        // مزامنة المتصفح فوراً مع السيرفر لضمان التوافق في المرة القادمة
+        localStorage.setItem("theme", finalTheme); 
+    } 
     else {
-        finalTheme = savedTheme ?? "light";
+        // مستخدم زائر: نعتمد المتصفح أو ثيم الجهاز الافتراضي
+        finalTheme = savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     }
 
-    if (finalTheme === "dark") {
-        body.classList.add("dark-mode");
-        toggleBtn.checked = true;
-        logoImg.src = logoLight;
-    } else {
-        body.classList.remove("dark-mode");
-        toggleBtn.checked = false;
-        logoImg.src = logoDark;
-    }
-
-    // ✅ تحديث localStorage فقط للزائر
-    if (typeof serverDarkMode !== "boolean") {
-        localStorage.setItem("theme", finalTheme);
-    }
-
+    applyTheme(finalTheme);
     handleScrollForHeader();
 });
 
-// *! handle theme toggle
+// التعامل مع التغيير اليدوي
 toggleBtn.addEventListener("change", () => {
-    const isDark = toggleBtn.checked;
+    const newTheme = toggleBtn.checked ? "dark" : "light";
+    applyTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
 
-    if (isDark) {
-        body.classList.add("dark-mode");
-        logoImg.src = logoLight;
-        localStorage.setItem("theme", "dark");
-    } else {
-        body.classList.remove("dark-mode");
-        logoImg.src = logoDark;
-        localStorage.setItem("theme", "light");
-    }
-
-    // *! Notify server about theme change
+    // إبلاغ السيرفر
     fetch("/theme/toggle", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
-                .content,
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
         },
+        body: JSON.stringify({ theme: newTheme }) // يفضل إرسال القيمة المختارة
     });
 });
 
