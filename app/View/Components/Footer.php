@@ -39,7 +39,7 @@ class Footer extends Component
         $this->expanded = $expanded ?? false;
         
         $this->designerName = $designerName ?? 'عمر عنوس';
-        $this->designerLink = $designerLink ?? 'https://omaranos517.vercel.app';
+        $this->designerLink = $designerLink ?? 'https://omar-anoss.vercel.app';
         $this->badges = $badges ?? [
             ['icon'=>'lock','text'=>'آمن ومحمي'],
             ['icon'=>'certificate','text'=>'جودة عالية'],
