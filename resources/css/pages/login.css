@@ -186,7 +186,7 @@ body.dark-mode .login-footer {
 
 .password-toggle {
     position: absolute;
-    right: 15px;
+    left: 25px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;

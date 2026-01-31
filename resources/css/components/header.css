@@ -280,6 +280,27 @@ input:checked + .slider:before {
     }
 }
 
+@media (hover: none) and (pointer: coarse) {
+    .logo:active::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    
+    .logo:active img {
+        transform: scale(1.08) rotate(-2deg);
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+    }
+
+    .nav-btn:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+    }
+
+    .nav-btn.logout:active {
+        box-shadow: 0 2px 8px rgba(192, 57, 43, 0.2);
+    }
+}
+
 /* ========== وسائط الاستجابة للشاشات ========== */
 
 /* شاشات كبيرة (أجهزة سطح المكتب) */

@@ -44,3 +44,26 @@ body.dark-mode {
     background: var(--bg-dark);
     color: var(--text-dark);
 }
+
+/* stylelint-disable selector-max-id */
+::selection {
+    background-color: rgba(52, 152, 219, 0.3); /* لون أزرق Primary شفاف */
+    color: var(--secondary); /* لون النص يظل غامقاً للوضوح */
+}
+
+/* في حالة الوضع الليلي (Dark Mode) */
+body.dark-mode ::selection {
+    background-color: var(--primary); /* أزرق كامل */
+    color: #ffffff; /* نص أبيض تماماً */
+}
+
+/* للمتصفحات التي تستخدم محرك Gecko مثل Firefox */
+::-moz-selection {
+    background-color: rgba(52, 152, 219, 0.3);
+    color: var(--secondary);
+}
+
+body.dark-mode ::-moz-selection {
+    background-color: var(--primary);
+    color: #ffffff;
+}
