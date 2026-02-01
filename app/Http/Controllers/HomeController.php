@@ -31,7 +31,7 @@ class HomeController extends Controller
                 : $parts[0];
         }
 
-        return view('home', [
+        return view('pages.Home.home', [
             'subjects' => $subjects,
             'firstName' => $firstName,
             'totalStudents' => rand(500, 5000),

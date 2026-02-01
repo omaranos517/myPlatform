@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Back Button -->
-    @include('partials.backBtn')
+    @include('components.backBtn')
     <div class="course-container">
         <h2 class="course-title">{{ $course->title }}</h2>
         <p class="course-description">{{ $course->description ?? 'لا يوجد وصف للكورس' }}</p>
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Back To Top -->
-    @include('partials.backToTopBtn')
+    @include('components.backToTopBtn')
 @endsection
 
 @php

@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Back Button -->
-    @include('partials.backBtn')
+    @include('components.backBtn')
     <!-- Main Content -->
     <div class="main-container">
         <div class="welcome-banner">

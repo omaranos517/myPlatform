@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Back Button -->
-    @include('partials.backBtn')
+    @include('components.backBtn')
     <div class="lessons-container">
         @forelse($courses as $course)
             <div class="lesson-card">
@@ -28,7 +28,7 @@
     </div>
 
     <!-- back to top button -->
-    @include('partials.backToTopBtn')
+    @include('components.backToTopBtn')
     <script>
         // تشغيل تأثيرات الظهور عند التحميل
         window.addEventListener('load', function() {

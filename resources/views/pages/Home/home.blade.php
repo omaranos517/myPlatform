@@ -40,34 +40,10 @@
     <section class="stats-section" id="stats">
         <h2 class="section-title">إحصائيات المنصة</h2>
         <div class="stats-grid">
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-number">{{$totalStudents}}</div>
-                <div class="stat-label">طالب وطالبة</div>
-            </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="stat-number">{{$successRate}}%</div>
-                <div class="stat-label">نسبة النجاح</div>
-            </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <div class="stat-number">{{$totalTeachers}}</div>
-                <div class="stat-label">مدرس متخصص</div>
-            </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="stat-number">{{$ParentalSatisfaction}}%</div>
-                <div class="stat-label">رضا أولياء الأمور</div>
-            </div>
+            <x-stat-card icon="users" :value="$totalStudents" label="طالب وطالبة" />
+            <x-stat-card icon="graduation-cap" :value="$successRate" label="نسبة نجاح الطلاب" />
+            <x-stat-card icon="chalkboard-teacher" :value="$totalTeachers" label="مدرس متخصص" />
+            <x-stat-card icon="smile" :value="$ParentalSatisfaction . '%'" label="رضا أولياء الأمور" />
         </div>
     </section>
     @auth
@@ -78,16 +54,7 @@
                     <h2 class="section-title">المواد الدراسية</h2>
                     <div class="subjects-grid">
                         @foreach ($subjects as $index => $subject)
-                            <div class="subject-card animate-on-scroll" style="transition-delay: {{$index * 0.1}}s">
-                                <div class="subject-card-header">
-                                    <i class="fas fa-book"></i>
-                                </div>
-                                <div class="subject-card-body">
-                                    <h3>{{$subject->name}}</h3>
-                                    <p>استعد للتميز في هذه المادة مع أفضل المدرسين</p>
-                                    <a href="{{ route('subjects.show', $subject) }}" class="subject-link">ابدأ التعلم الآن</a>
-                                </div>
-                            </div>
+                            <x-subject-card :subject="$subject" :index="$index" />
                         @endforeach
                     </div>
                 @else
@@ -177,7 +144,7 @@
     @endauth
     
     <!-- Back to Top Button -->
-    @include('partials.backToTopBtn')
+    @include('components.backToTopBtn')
 @endsection
 
 @php
