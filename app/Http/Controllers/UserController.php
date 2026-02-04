@@ -13,5 +13,5 @@ class UserController extends Controller
     public function get_login(){
         return view('login');
     }
- 
+    
 }

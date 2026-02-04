@@ -30,4 +30,16 @@ class Student extends Authenticatable
     ];
 
     public $timestamps = true;
+
+    // ** دالة الحصول علي الاسم الأول للطالب
+    public function getFirstNameAttribute()
+    {
+        $parts = explode(' ', trim($this->name));
+        $prefixes = ['عبد', 'أبو', 'أم', 'آل'];
+
+        if (count($parts) > 1 && in_array($parts[0], $prefixes)) {
+            return $parts[0] . ' ' . $parts[1];
+        }
+        return $parts[0];
+    }
 }

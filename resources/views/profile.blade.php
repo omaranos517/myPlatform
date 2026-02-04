@@ -9,7 +9,7 @@
     <div class="main-container">
         <div class="welcome-banner">
             <h2><i class="fas fa-user-cog"></i> إدارة الحساب</h2>
-            <p>مرحباً {{ $student['name'] }}، يمكنك هنا إدارة معلومات حسابك الشخصية</p>
+            <p>مرحباً {{ $firstName }}، يمكنك هنا إدارة معلومات حسابك الشخصية</p>
         </div>
         
         <div class="account-container">

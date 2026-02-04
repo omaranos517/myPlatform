@@ -7,9 +7,6 @@
     <section class="hero" id="hero">
         <div class="hero-content" id="hero-content">
             @auth
-                @php
-                    $firstName = explode(' ', trim(Auth::guard('student')->user()->name))[0];
-                @endphp
                 <h1 class="animate__animated animate__fadeInDown">مرحبًا بك، {{$firstName}}! 🌟</h1>
                 <p class="animate__animated animate__fadeInUp">سعداء بانضمامك إلى عائلة {{ $settings->platform_name }} للمرحلتين الإعدادية والثانوية.<br>أكبر منصة تعليمية متكاملة</p>
                 <div class="hero-buttons animate__animated animate__fadeInUp">

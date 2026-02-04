@@ -13,7 +13,8 @@ class AccountController extends Controller
     public function index()
     {
         $student = Auth::guard('student')->user();
-        return view('profile', compact('student'));
+        $firstName = Auth::guard('student')->user()->first_name;
+        return view('profile', compact('student', 'firstName'));
     }
 
     // ! Profile page actions
