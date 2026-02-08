@@ -5,8 +5,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Student\AccountController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\Auth\SignupController;
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Student\Auth\SignupController;
+use App\Http\Controllers\Student\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,23 +22,6 @@ Route::post('/signup', [SignupController::class, 'process'])->name('signup.proce
 
 Route::get('/login', [LoginController::class, 'showForm'])->name('login');
 Route::post('/login', [LoginController::class, 'process'])->name('login.process');
-
-Route::post('/theme/toggle', function () {
-
-    $user = auth('student')->user();
-
-    if (!$user) {
-        return response()->json(['status' => 'guest']);
-    }
-
-    $user->dark_mode = ! $user->dark_mode;
-    $user->save();
-
-    return response()->json([
-        'status' => 'ok',
-        'dark_mode' => $user->dark_mode
-    ]);
-})->name('theme.toggle');
 
 Route::get('/support', function () {
     abort(503, 'Support system under development');
@@ -70,6 +53,23 @@ Route::middleware('auth:student')->group(function () {
     })
     ->name('support.submit');
 
+    Route::post('/theme/toggle', function () {
+
+        $user = auth('student')->user();
+
+        if (!$user) {
+            return response()->json(['status' => 'guest']);
+        }
+
+        $user->dark_mode = ! $user->dark_mode;
+        $user->save();
+
+        return response()->json([
+            'status' => 'ok',
+            'dark_mode' => $user->dark_mode
+        ]);
+    })->name('theme.toggle');
+        
     Route::post('/logout', function () {
         auth('student')->logout();
         return redirect()->route('home');
