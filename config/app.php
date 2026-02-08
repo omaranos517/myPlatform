@@ -28,6 +28,19 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Path
+    |--------------------------------------------------------------------------
+    | This value determines the path of admin panel, which will be used when the
+    | framework needs to place the application's name in a notification or
+    | other UI elements where an application name needs to be displayed.
+    |
+    */
+        
+    'admin_path' => env('ADMIN_PATH'),
+    
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
