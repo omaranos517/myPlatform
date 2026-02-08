@@ -82,7 +82,7 @@ Route::middleware('auth:student')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('admin')->group(function() {
+Route::prefix('control-center-9843')->group(function() {
     // صفحة تسجيل الدخول للإداري
     Route::get('/login', [DashboardController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/login', [DashboardController::class, 'login'])->name('admin.login.process');
