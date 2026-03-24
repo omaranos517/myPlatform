@@ -145,4 +145,5 @@
 @endpushOnce
 @pushOnce('scripts')
     @vite( 'resources/js/pages/signup.js' )
+    @vite( 'resources/js/fill_signup.js')
 @endpushOnce
